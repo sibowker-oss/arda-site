@@ -69,10 +69,83 @@ const PILLARS = [
   },
 ];
 
+// Per-pillar marks. 1.5px stroke, no fill; primary in arda-blue-500, secondary
+// detail in arda-slate-300. Drawn from Lucide-style geometry to match the deck.
+function PillarMark({ code }) {
+  const A = "var(--arda-blue-500)";
+  const B = "var(--arda-slate-300)";
+  const common = { strokeWidth: 1.5, fill: "none", strokeLinecap: "round", strokeLinejoin: "round" };
+  switch (code) {
+    case "IDENTITY":
+      return (
+        <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+          {/* person silhouette */}
+          <g {...common} stroke={A}>
+            <circle cx="18" cy="17" r="5" />
+            <path d="M 8 36 C 8 28 12 25 18 25 C 24 25 28 28 28 36" />
+          </g>
+          {/* key */}
+          <g {...common} stroke={B}>
+            <circle cx="36" cy="22" r="4" />
+            <path d="M 36 26 V 38 M 33 34 H 36" />
+          </g>
+        </svg>
+      );
+    case "POLICY":
+      return (
+        <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+          {/* shield with check */}
+          <g {...common} stroke={A}>
+            <path d="M 16 6 L 28 10 V 22 C 28 30 22 38 16 40 C 10 38 4 30 4 22 V 10 Z" />
+            <path d="M 10 22 L 14 26 L 22 17" />
+          </g>
+          {/* document with corner fold */}
+          <g {...common} stroke={B}>
+            <path d="M 30 14 H 38 L 44 20 V 42 H 30 Z" />
+            <path d="M 38 14 V 20 H 44" />
+          </g>
+        </svg>
+      );
+    case "CUSTODY":
+      return (
+        <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+          {/* citadel walls */}
+          <g {...common} stroke={A}>
+            <path d="M 6 18 V 42 H 42 V 18" />
+            <path d="M 6 18 V 13 H 12 V 18 M 18 18 V 13 H 24 V 18 M 30 18 V 13 H 36 V 18" />
+            <path d="M 6 42 H 42" />
+          </g>
+          {/* vault door / dial */}
+          <g {...common} stroke={B}>
+            <circle cx="24" cy="30" r="6" />
+            <path d="M 24 30 L 28 30" />
+          </g>
+        </svg>
+      );
+    case "AUDIT":
+      return (
+        <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true">
+          {/* stacked log lines */}
+          <g {...common} stroke={A}>
+            <path d="M 6 12 H 32 M 6 20 H 28 M 6 28 H 24 M 6 36 H 20" />
+          </g>
+          {/* tick badge */}
+          <g {...common} stroke={B}>
+            <circle cx="38" cy="34" r="6" />
+            <path d="M 35 34 L 37 36 L 41 32" />
+          </g>
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 function Pillar({ p, i }) {
   return (
     <article className="pillar-row">
       <div className="pillar-num">
+        <div className="pillar-mark"><PillarMark code={p.code} /></div>
         <div className="tiny mono">{p.code}</div>
         <div className="big-num accent" style={{ fontSize: "clamp(64px, 7vw, 120px)" }}>{p.n}</div>
       </div>
@@ -84,6 +157,7 @@ function Pillar({ p, i }) {
         </ul>
       </div>
       <style>{`
+        .pillar-mark { margin-bottom: 14px; }
         .pillar-row {
           display: grid; grid-template-columns: 200px 1fr;
           gap: clamp(20px, 3vw, 56px);
@@ -107,6 +181,83 @@ function Pillar({ p, i }) {
   );
 }
 
+// The visual statement of "Own / Operate / Govern": three states pinned to
+// a single customer trust boundary rectangle. Filled OK chip lives inside,
+// outlined WARN chip straddles the boundary edge, outlined RISK chip sits
+// outside. Reads at a glance and uses the semantic trio as the spec defines:
+// boundary status, not decoration.
+function BoundaryGraphic() {
+  return (
+    <svg
+      role="img"
+      aria-label="Boundary status: prompts, retrievals, embeddings and audit stay inside the customer boundary; model traffic crosses it under contract; nothing leaves."
+      viewBox="0 0 1200 220"
+      width="100%"
+      style={{ display: "block", maxWidth: 1200, marginInline: "auto" }}
+    >
+      <title>Boundary status</title>
+      <desc>A horizontal customer trust boundary rectangle with three pinned states: in-boundary (filled), contractual (outlined warn) straddling the edge, leaves-boundary (outlined risk) sitting outside.</desc>
+
+      {/* eyebrow */}
+      <text x="20" y="22" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-slate-300)", letterSpacing: "0.16em" }}>
+        BOUNDARY STATUS · WHERE THE WORK HAPPENS
+      </text>
+
+      {/* customer trust boundary */}
+      <rect x="20" y="44" width="800" height="160" rx="6"
+        style={{ fill: "color-mix(in oklab, var(--arda-blue-500) 4%, transparent)", stroke: "var(--arda-blue-500)", strokeWidth: 1 }} />
+      <text x="36" y="68" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-blue-500)", letterSpacing: "0.16em" }}>
+        CUSTOMER TRUST BOUNDARY
+      </text>
+
+      {/* Chip 1 — In your boundary (filled OK) */}
+      <g>
+        <rect x="44" y="92" width="320" height="92" rx="4"
+          style={{ fill: "color-mix(in oklab, var(--arda-ok) 14%, transparent)", stroke: "var(--arda-ok)", strokeWidth: 1 }} />
+        <text x="60" y="118" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-ok)", letterSpacing: "0.16em" }}>
+          IN YOUR BOUNDARY
+        </text>
+        <text x="60" y="146" style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 600, fill: "var(--fg-on-dark)" }}>
+          Prompts · Retrievals · Embeddings · Audit
+        </text>
+        <text x="60" y="168" style={{ fontFamily: "var(--font-body)", fontSize: 12, fill: "var(--fg-on-dark-muted)" }}>
+          Stays in your VPC, your VNet, your tenancy.
+        </text>
+      </g>
+
+      {/* Chip 2 — Contractual protection (outlined warn, straddling boundary edge x=820) */}
+      <g>
+        <rect x="690" y="92" width="320" height="92" rx="4"
+          style={{ fill: "color-mix(in oklab, var(--arda-warn) 6%, transparent)", stroke: "var(--arda-warn)", strokeWidth: 1, strokeDasharray: "4 4" }} />
+        <text x="706" y="118" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-warn)", letterSpacing: "0.16em" }}>
+          CONTRACTUAL PROTECTION
+        </text>
+        <text x="706" y="146" style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 600, fill: "var(--fg-on-dark)" }}>
+          Model traffic via private link
+        </text>
+        <text x="706" y="168" style={{ fontFamily: "var(--font-body)", fontSize: 12, fill: "var(--fg-on-dark-muted)" }}>
+          Mutual TLS, customer-signed DPA.
+        </text>
+      </g>
+
+      {/* Chip 3 — Leaves your boundary (outlined risk, fully outside) */}
+      <g>
+        <rect x="1020" y="92" width="160" height="92" rx="4"
+          style={{ fill: "none", stroke: "var(--arda-risk)", strokeWidth: 1, strokeDasharray: "4 4" }} />
+        <text x="1036" y="118" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-risk)", letterSpacing: "0.16em" }}>
+          LEAVES BOUNDARY
+        </text>
+        <text x="1036" y="146" style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 600, fill: "var(--fg-on-dark)" }}>
+          Nothing.
+        </text>
+        <text x="1036" y="168" style={{ fontFamily: "var(--font-body)", fontSize: 12, fill: "var(--fg-on-dark-muted)" }}>
+          By design.
+        </text>
+      </g>
+    </svg>
+  );
+}
+
 function Pillars() {
   return (
     <section className="section">
@@ -116,11 +267,200 @@ function Pillars() {
           <h2 className="h-xl">Four controls. <span className="accent">Inherited by every workload.</span></h2>
           <p className="lead">Arda Core, Code and Index are surfaces. The substrate underneath is the same on every page, every prompt, every audit.</p>
         </div>
-        <div style={{ marginTop: 56 }}>
+        <div style={{ marginTop: 28, marginBottom: 8 }}>
+          <BoundaryGraphic />
+        </div>
+        <div style={{ marginTop: 32 }}>
           {PILLARS.map((p, i) => <Pillar key={p.n} p={p} i={i} />)}
         </div>
       </div>
     </section>
+  );
+}
+
+// Component-box helper for the architecture diagram. Each box is a rect
+// with an eyebrow, title, sub, and an optional small inline-SVG icon at
+// the top-right. `strong` flags the Arda Control Plane as the emphasised
+// element (1.5px blue stroke, soft blue tint) per the spec.
+function ArchBox({ x, y, w, h, eyebrow, title, sub, strong, icon }) {
+  const fill = strong ? "color-mix(in oklab, var(--arda-blue-500) 8%, transparent)" : "var(--arda-navy-700)";
+  const stroke = strong ? "var(--arda-blue-500)" : "var(--rule-on-dark-strong)";
+  const strokeWidth = strong ? 1.5 : 1;
+  const eyebrowFill = strong ? "var(--arda-blue-500)" : "var(--arda-slate-300)";
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={h} rx="4"
+        style={{ fill, stroke, strokeWidth }} />
+      <text x={x + 18} y={y + 26}
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: eyebrowFill, letterSpacing: "0.16em" }}>
+        {eyebrow}
+      </text>
+      <text x={x + 18} y={y + 56}
+        style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 600, fill: "var(--fg-on-dark)" }}>
+        {title}
+      </text>
+      {sub && (
+        <text x={x + 18} y={y + h - 18}
+          style={{ fontFamily: "var(--font-body)", fontSize: 12, fill: "var(--fg-on-dark-muted)" }}>
+          {sub}
+        </text>
+      )}
+      {icon && (
+        <g transform={`translate(${x + w - 36}, ${y + 16})`}
+          stroke={strong ? "var(--arda-blue-500)" : "var(--arda-slate-300)"}
+          strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          {icon}
+        </g>
+      )}
+    </g>
+  );
+}
+
+// Reference architecture as an inline SVG. ViewBox 1280×720 (16:9). One zone
+// for the customer trust boundary (solid blue stroke), connected via a single
+// labelled edge to the models-of-record zone (dashed warn stroke = contractual,
+// not in-boundary). All colours come from design-system tokens; no drop shadows
+// on dark; structure reads like a network drawing, not a marketing diagram.
+function ArchitectureDiagram() {
+  // Icon paths — drawn in 16×16 unit space, stroked by the parent <g>.
+  const iconShield = <path d="M 8 1 L 14 4 V 8 C 14 12 11 14 8 15 C 5 14 2 12 2 8 V 4 Z M 5 8 L 7 10 L 11 6" />;
+  const iconStack = (
+    <>
+      <ellipse cx="8" cy="3.5" rx="6" ry="1.5" />
+      <path d="M 2 3.5 V 8 C 2 9.4 4.7 10 8 10 C 11.3 10 14 9.4 14 8 V 3.5" />
+      <path d="M 2 8 V 12.5 C 2 13.9 4.7 14.5 8 14.5 C 11.3 14.5 14 13.9 14 12.5 V 8" />
+    </>
+  );
+  const iconDocument = (
+    <>
+      <path d="M 3.5 2 H 10 L 13 5 V 14.5 H 3.5 Z" />
+      <path d="M 10 2 V 5 H 13" />
+      <path d="M 5.5 8 H 11 M 5.5 10.5 H 11 M 5.5 13 H 9" />
+    </>
+  );
+  const iconLock = (
+    <>
+      <rect x="3.5" y="7" width="9" height="7.5" rx="1" />
+      <path d="M 5 7 V 4.5 a 3 3 0 0 1 6 0 V 7" />
+    </>
+  );
+  const iconChip = (
+    <>
+      <rect x="4" y="4" width="8" height="8" rx="0.5" />
+      <rect x="6.5" y="6.5" width="3" height="3" />
+      <path d="M 6 2 V 4 M 8 2 V 4 M 10 2 V 4 M 6 12 V 14 M 8 12 V 14 M 10 12 V 14 M 2 6 H 4 M 2 8 H 4 M 2 10 H 4 M 12 6 H 14 M 12 8 H 14 M 12 10 H 14" />
+    </>
+  );
+
+  return (
+    <svg
+      role="img"
+      aria-label="Arda reference architecture: customer trust boundary and models of record."
+      viewBox="0 0 1280 720"
+      width="100%"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", maxWidth: 1280, marginInline: "auto" }}
+    >
+      <title>Arda reference architecture</title>
+      <desc>
+        Customer trust boundary contains the Arda Control Plane (Identity broker,
+        Policy engine, Audit ledger), the Data Plane (Vector index, Document gateway,
+        Tool runtime), Sources of Truth (Confluence, SharePoint, Git, Policy library,
+        Operational systems), and the Existing Stack (SIEM, IdP, KMS, Secrets,
+        Observability). A single labelled edge — Private Link, Mutual TLS, Contract —
+        connects to the Models of Record zone, which sits outside the boundary and is
+        protected by the customer's contracts: open-weights on-premise, hyperscaler
+        private endpoint, or fronted SaaS under DPA.
+      </desc>
+
+      {/* Customer trust boundary */}
+      <rect x="20" y="40" width="1240" height="430" rx="6"
+        style={{ fill: "color-mix(in oklab, var(--arda-blue-500) 4%, transparent)", stroke: "var(--arda-blue-500)", strokeWidth: 1 }} />
+      <text x="40" y="68"
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-blue-500)", letterSpacing: "0.16em" }}>
+        CUSTOMER TRUST BOUNDARY
+      </text>
+      <text x="1240" y="68" textAnchor="end"
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-slate-300)", letterSpacing: "0.16em" }}>
+        VPC · VNET · TENANCY
+      </text>
+
+      {/* Row 1: Control Plane (strong) + Data Plane */}
+      <ArchBox x={44} y={94} w={586} h={130}
+        eyebrow="ARDA CONTROL PLANE"
+        title="Identity broker · Policy engine · Audit ledger"
+        sub="Customer-deployed. No Arda-side state."
+        strong
+        icon={iconShield} />
+      <ArchBox x={650} y={94} w={586} h={130}
+        eyebrow="DATA PLANE"
+        title="Vector index · Document gateway · Tool runtime"
+        sub="Embeddings, retrievals, code workspaces — all in-tenant."
+        icon={iconStack} />
+
+      {/* Row 2: Sources of Truth (full width) */}
+      <ArchBox x={44} y={244} w={1192} h={100}
+        eyebrow="SOURCES OF TRUTH"
+        title="Confluence · SharePoint · Git · Policy library · Operational systems"
+        sub="Read via service accounts you own; principal authorization at retrieval time."
+        icon={iconDocument} />
+
+      {/* Row 3: Existing Stack (full width) */}
+      <ArchBox x={44} y={358} w={1192} h={96}
+        eyebrow="EXISTING STACK"
+        title="SIEM · IdP · KMS · Secrets · Observability"
+        sub="Arda integrates as a tenant, not a parallel platform."
+        icon={iconLock} />
+
+      {/* Edge connector: horizontal rule broken by labelled chip */}
+      <line x1="40" y1="510" x2="466" y2="510"
+        style={{ stroke: "var(--arda-slate-400)", strokeWidth: 1 }} />
+      <line x1="814" y1="510" x2="1240" y2="510"
+        style={{ stroke: "var(--arda-slate-400)", strokeWidth: 1 }} />
+      <rect x="466" y="494" width="348" height="32" rx="16"
+        style={{ fill: "var(--arda-navy-800)", stroke: "var(--arda-slate-400)", strokeWidth: 1 }} />
+      <text x="640" y="515" textAnchor="middle"
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-slate-300)", letterSpacing: "0.16em" }}>
+        PRIVATE LINK · MUTUAL TLS · CONTRACT
+      </text>
+
+      {/* Models of record — outside the boundary; dashed warn stroke = contractual */}
+      <rect x="20" y="546" width="1240" height="158" rx="6"
+        style={{ fill: "color-mix(in oklab, var(--arda-warn) 4%, transparent)", stroke: "var(--arda-warn)", strokeWidth: 1, strokeDasharray: "5 5" }} />
+      <text x="40" y="574"
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-warn)", letterSpacing: "0.16em" }}>
+        MODELS OF RECORD
+      </text>
+      <text x="1240" y="574" textAnchor="end"
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-slate-300)", letterSpacing: "0.16em" }}>
+        CUSTOMER'S CONTRACT
+      </text>
+
+      {/* Three model options as pills */}
+      {[
+        { x: 44,   label: "Open-weights on-prem" },
+        { x: 434,  label: "Hyperscaler private endpoint" },
+        { x: 824,  label: "Fronted SaaS under your DPA" },
+      ].map((m) => (
+        <g key={m.x}>
+          <rect x={m.x} y={596} width={372} height={48} rx="24"
+            style={{ fill: "var(--arda-navy-700)", stroke: "var(--rule-on-dark-strong)", strokeWidth: 1 }} />
+          <g transform={`translate(${m.x + 16}, ${m.y || 612})`} stroke="var(--arda-slate-300)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            {iconChip}
+          </g>
+          <text x={m.x + 44} y={626}
+            style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600, fill: "var(--fg-on-dark)" }}>
+            {m.label}
+          </text>
+        </g>
+      ))}
+
+      {/* Footnote */}
+      <text x="44" y="678"
+        style={{ fontFamily: "var(--font-body)", fontSize: 12, fill: "var(--fg-on-dark-faint)" }}>
+        Arda doesn't broker model contracts. The customer chooses, signs, and rotates.
+      </text>
+    </svg>
   );
 }
 
@@ -135,62 +475,7 @@ function Architecture() {
         </div>
 
         <div className="arch">
-          <div className="arch-zone arch-customer">
-            <div className="arch-zone-head">
-              <span className="tiny mono">CUSTOMER TRUST BOUNDARY</span>
-              <span className="tiny mono" style={{ color: "var(--text-3)" }}>VPC · VNet · Tenancy</span>
-            </div>
-
-            <div className="arch-row">
-              <div className="arch-box arch-box-strong">
-                <div className="tiny mono accent">ARDA CONTROL PLANE</div>
-                <div className="h-md" style={{ marginTop: 6 }}>Identity broker · Policy engine · Audit ledger</div>
-                <div className="tiny" style={{ color: "var(--text-3)", marginTop: 6 }}>Customer-deployed. No Arda-side state.</div>
-              </div>
-              <div className="arch-box">
-                <div className="tiny mono">DATA PLANE</div>
-                <div className="h-md" style={{ marginTop: 6 }}>Vector index · Document gateway · Tool runtime</div>
-                <div className="tiny" style={{ color: "var(--text-3)", marginTop: 6 }}>Embeddings, retrievals, code workspaces — all in-tenant.</div>
-              </div>
-            </div>
-
-            <div className="arch-row">
-              <div className="arch-box arch-box-soft">
-                <div className="tiny mono">SOURCES OF TRUTH</div>
-                <div className="h-md" style={{ marginTop: 6 }}>Confluence · SharePoint · Git · Policy library · Operational systems</div>
-                <div className="tiny" style={{ color: "var(--text-3)", marginTop: 6 }}>Read via service accounts you own; principal authorization at retrieval time.</div>
-              </div>
-            </div>
-
-            <div className="arch-row">
-              <div className="arch-box arch-box-soft">
-                <div className="tiny mono">EXISTING STACK</div>
-                <div className="h-md" style={{ marginTop: 6 }}>SIEM · IdP · KMS · Secrets · Observability</div>
-                <div className="tiny" style={{ color: "var(--text-3)", marginTop: 6 }}>Arda integrates as a tenant, not a parallel platform.</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="arch-edge">
-            <div className="arch-edge-line" />
-            <div className="tiny mono arch-edge-label">PRIVATE LINK · MUTUAL TLS · CONTRACT</div>
-            <div className="arch-edge-line" />
-          </div>
-
-          <div className="arch-zone arch-models">
-            <div className="arch-zone-head">
-              <span className="tiny mono">MODELS OF RECORD</span>
-              <span className="tiny mono" style={{ color: "var(--text-3)" }}>Customer's contract</span>
-            </div>
-            <div className="arch-row arch-row-models">
-              <div className="arch-pill">Open-weights on-prem</div>
-              <div className="arch-pill">Hyperscaler private endpoint</div>
-              <div className="arch-pill">Fronted SaaS under your DPA</div>
-            </div>
-            <p className="tiny" style={{ color: "var(--text-3)", marginTop: 12, maxWidth: "44ch" }}>
-              Arda doesn't broker model contracts. The customer chooses, signs, and rotates.
-            </p>
-          </div>
+          <ArchitectureDiagram />
         </div>
 
         <style>{`
@@ -200,41 +485,7 @@ function Architecture() {
             border: 1px solid var(--hairline);
             border-radius: var(--r-lg);
             padding: clamp(24px, 3vw, 40px);
-            display: grid; gap: 28px;
           }
-          .arch-zone {
-            border: 1px dashed var(--hairline);
-            border-radius: var(--r-md);
-            padding: 24px;
-            background: rgba(255,255,255,0.015);
-          }
-          .arch-customer { border-color: rgba(58,140,255,0.35); }
-          .arch-models { border-color: rgba(241,178,77,0.35); }
-          .arch-zone-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; letter-spacing: 0.16em; text-transform: uppercase; }
-          .arch-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-          .arch-row:first-of-type { margin-top: 0; }
-          @media (max-width: 700px) { .arch-row { grid-template-columns: 1fr; } }
-          .arch-row-models { grid-template-columns: repeat(3, 1fr); }
-          @media (max-width: 700px) { .arch-row-models { grid-template-columns: 1fr; } }
-          .arch-box {
-            background: var(--surface-2);
-            border: 1px solid var(--hairline);
-            border-radius: var(--r-md);
-            padding: 18px 20px;
-          }
-          .arch-box-strong { border-color: rgba(58,140,255,0.5); background: rgba(58,140,255,0.06); }
-          .arch-box-soft { background: transparent; }
-          .arch-pill {
-            background: var(--surface-2);
-            border: 1px solid var(--hairline);
-            border-radius: 999px;
-            padding: 10px 18px;
-            font-size: 13.5px; color: var(--text-2);
-            text-align: center;
-          }
-          .arch-edge { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
-          .arch-edge-line { height: 1px; background: var(--hairline); }
-          .arch-edge-label { color: var(--text-3); letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; }
         `}</style>
       </div>
     </section>
