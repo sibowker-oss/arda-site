@@ -15,7 +15,7 @@ function ArdaTweaks({ tweaks, setTweak }) {
           { value: "C", label: "C" },
         ]}
       />
-      <div style={{ margin: "2px 0 6px", fontSize: 11, color: "#9aa3b6", fontFamily: "JetBrains Mono, monospace", lineHeight: 1.45 }}>
+      <div style={{ margin: "2px 0 6px", fontSize: 11, color: "var(--arda-slate-400)", fontFamily: "var(--font-mono)", lineHeight: 1.45 }}>
         {tweaks.heroVariant === "A" && "AI you can defend to your regulator."}
         {tweaks.heroVariant === "B" && "The AI you own. Operate. Govern."}
         {tweaks.heroVariant === "C" && "Sovereign AI for the workloads that can't leave the boundary."}

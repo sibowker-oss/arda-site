@@ -110,8 +110,8 @@ function Hero({ variant = "C" }) {
           border-radius: 4px;
           overflow: hidden;
         }
-        [data-theme="dark"] .hero-frame { box-shadow: 0 32px 64px rgba(0,0,0,0.4); }
-        [data-theme="light"] .hero-frame { box-shadow: 0 12px 32px rgba(20,35,64,0.08); }
+        [data-theme="dark"] .hero-frame { box-shadow: var(--shadow-lg); }
+        [data-theme="light"] .hero-frame { box-shadow: var(--shadow-md); }
         .hero-frame-head {
           display: flex; align-items: center; justify-content: space-between;
           padding: 12px 16px;
@@ -313,7 +313,7 @@ function Pillars({ style = "cards" }) {
                   <h3 className="h-lg" style={{ marginTop: 16 }}>{p.title}</h3>
                 </div>
                 <div className="pillar-row-defend">
-                  <div className="tiny mono" style={{ color: "var(--amber)", marginBottom: 12, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+                  <div className="tiny mono" style={{ color: "var(--accent)", marginBottom: 12, letterSpacing: "0.16em", textTransform: "uppercase" }}>
                     What the buyer needs to defend
                   </div>
                   <ul className="proof-list">
