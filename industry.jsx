@@ -47,7 +47,7 @@ const INDUSTRY_DATA = {
       { name: "Customer-service knowledge", desc: "Front-line agents ask the product manual, get the page; supervisors get the audit log." },
       { name: "Internal-audit research", desc: "Sanctioned retrieval over the control library, the policy library, and the prior audit pack." },
     ],
-    accent: "var(--amber)",
+    accent: "var(--accent)",
   },
 };
 

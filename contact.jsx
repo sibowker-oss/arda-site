@@ -121,7 +121,7 @@ function ContactPage() {
         @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
         .contact-aside { padding-right: clamp(0px, 2vw, 24px); }
-        .contact-link { color: var(--text); border-bottom: 1px solid rgba(58,140,255,0.4); }
+        .contact-link { color: var(--text); border-bottom: 1px solid color-mix(in oklab, var(--accent) 40%, transparent); }
         .contact-link:hover { color: var(--accent); }
         .quiet-contact { display: grid; gap: 14px; margin-top: 18px; }
         .quiet-row { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: baseline; }

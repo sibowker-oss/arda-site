@@ -66,7 +66,7 @@ function DefendDeliver({ defend, deliver }) {
   return (
     <div className="grid-2" style={{ gap: "clamp(20px, 2.4vw, 36px)" }}>
       <div className="card">
-        <div className="tiny mono" style={{ color: "var(--amber)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 8 }}>What the buyer needs to defend</div>
+        <div className="tiny mono" style={{ color: "var(--accent)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 8 }}>What the buyer needs to defend</div>
         <h3 className="h-lg" style={{ marginBottom: 18 }}>Defensible, in their words.</h3>
         <ul className="proof-list">
           {defend.map((row, i) => (

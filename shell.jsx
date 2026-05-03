@@ -99,7 +99,7 @@ function Nav({ active }) {
           border-radius: 4px;
           padding: 10px;
           display: grid; gap: 2px;
-          box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+          box-shadow: var(--shadow-lg);
           animation: rise 180ms ease both;
         }
         .nav-dropdown-item {
