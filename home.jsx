@@ -365,7 +365,7 @@ const PRODUCTS = [
     name: "Arda Core",
     role: "Sovereign chat",
     blurb: "Sanctioned scratchpad for sensitive, ad-hoc queries. The only place a regulated user can paste internal data without leaving the boundary.",
-    href: "products/core.html",
+    href: "core.html",
     detail: ["In-boundary chat UI", "IdP-bound RBAC", "Audit-grade prompt log", "DLP and PII redaction", "Sanctioned scratchpad mode", "Zero retention by default"],
   },
   {
@@ -373,7 +373,7 @@ const PRODUCTS = [
     name: "Arda Code",
     role: "Sovereign coding assistant",
     blurb: "IDE-integrated for engineers in regulated codebases. Source code never leaves your environment. The energy-networks beachhead.",
-    href: "products/code.html",
+    href: "code.html",
     detail: ["IDE plugins", "In-boundary code completion and review", "Repo-aware retrieval", "No code or prompts leave", "Audit trail per developer", "Cost flat as usage compounds"],
   },
   {
@@ -381,7 +381,7 @@ const PRODUCTS = [
     name: "Arda Index",
     role: "Sovereign knowledge & search",
     blurb: "Access-aware RAG over internal docs and systems. Permission-bound retrieval, cited answers, nothing indexed outside the boundary.",
-    href: "products/index.html",
+    href: "index-product.html",
     detail: ["Access-aware RAG", "Permission-bound retrieval", "Cited answers with source documents", "Connectors for SharePoint / Confluence / Drive", "Re-index inside the boundary"],
   },
 ];
@@ -451,7 +451,7 @@ function Industries() {
         </div>
 
         <div className="industries-grid">
-          <a href="industries/energy.html" className="industry-card">
+          <a href="industry-energy.html" className="industry-card">
             <div className="industry-card-head">
               <span className="card-num">01</span>
               <span className="eyebrow">Primary segment</span>
@@ -467,7 +467,7 @@ function Industries() {
               See the Energy brief <span className="arr">→</span>
             </span>
           </a>
-          <a href="industries/financial-services.html" className="industry-card">
+          <a href="industry-fsi.html" className="industry-card">
             <div className="industry-card-head">
               <span className="card-num">02</span>
               <span className="eyebrow">Secondary segment</span>

@@ -4,14 +4,14 @@
 
 const ARDA_NAV = [
   { label: "Platform", href: "platform.html" },
-  { label: "Products", href: "products.html", children: [
-    { label: "Arda Core", desc: "Sovereign chat", href: "products/core.html" },
-    { label: "Arda Code", desc: "Sovereign coding assistant", href: "products/code.html" },
-    { label: "Arda Index", desc: "Sovereign knowledge & search", href: "products/index.html" },
+  { label: "Products", href: "core.html", children: [
+    { label: "Arda Core", desc: "Sovereign chat", href: "core.html" },
+    { label: "Arda Code", desc: "Sovereign coding assistant", href: "code.html" },
+    { label: "Arda Index", desc: "Sovereign knowledge & search", href: "index-product.html" },
   ]},
-  { label: "Industries", href: "industries.html", children: [
-    { label: "Energy networks", desc: "Transmission & distribution", href: "industries/energy.html" },
-    { label: "Financial services", desc: "Banks, insurers, super", href: "industries/financial-services.html" },
+  { label: "Industries", href: "industry-energy.html", children: [
+    { label: "Energy networks", desc: "Transmission & distribution", href: "industry-energy.html" },
+    { label: "Financial services", desc: "Banks, insurers, super", href: "industry-fsi.html" },
   ]},
   { label: "About", href: "about.html" },
   { label: "Contact", href: "contact.html" },
@@ -140,17 +140,16 @@ function Footer() {
           <div className="footer-col">
             <h6>Products</h6>
             <ul>
-              <li><a href="products/core.html">Arda Core — chat</a></li>
-              <li><a href="products/code.html">Arda Code — coding</a></li>
-              <li><a href="products/index.html">Arda Index — search</a></li>
-              <li><a href="products.html">All products</a></li>
+              <li><a href="core.html">Arda Core — chat</a></li>
+              <li><a href="code.html">Arda Code — coding</a></li>
+              <li><a href="index-product.html">Arda Index — search</a></li>
             </ul>
           </div>
           <div className="footer-col">
             <h6>Company</h6>
             <ul>
-              <li><a href="industries/energy.html">Energy networks</a></li>
-              <li><a href="industries/financial-services.html">Financial services</a></li>
+              <li><a href="industry-energy.html">Energy networks</a></li>
+              <li><a href="industry-fsi.html">Financial services</a></li>
               <li><a href="about.html">About Arda</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
