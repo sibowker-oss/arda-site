@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
+  .swatch { border-radius: 6px; aspect-ratio: 1/1.1; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--rule-on-light); }
+  .swatch.dark { color: #fff; border-color: rgba(255,255,255,0.08); }
+  .swatch .name { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+  .swatch .hex { font-family: var(--font-mono); font-size: 10px; opacity: 0.85; }
+  .legend { display: flex; gap: 18px; margin-top: 12px; font-size: 12px; color: var(--fg-on-light-muted); }
+  .legend b { color: var(--fg-on-light); font-weight: 700; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="eyebrow" style="margin-bottom:12px">Slate scale</div>
+    <div class="grid">
+      <div class="swatch" style="background:#F4F6FB;color:#0F172A"><span class="name">50</span><span class="hex">F4F6FB</span></div>
+      <div class="swatch" style="background:#E6EAF3;color:#0F172A"><span class="name">100</span><span class="hex">E6EAF3</span></div>
+      <div class="swatch" style="background:#CBD5E1;color:#0F172A"><span class="name">200</span><span class="hex">CBD5E1</span></div>
+      <div class="swatch" style="background:#A8B0C8;color:#0F172A"><span class="name">300</span><span class="hex">A8B0C8</span></div>
+      <div class="swatch dark" style="background:#7A8299"><span class="name">400</span><span class="hex">7A8299</span></div>
+      <div class="swatch dark" style="background:#475569"><span class="name">500</span><span class="hex">475569</span></div>
+      <div class="swatch dark" style="background:#2C3A52"><span class="name">600</span><span class="hex">2C3A52</span></div>
+      <div class="swatch dark" style="background:#0F172A"><span class="name">900</span><span class="hex">0F172A</span></div>
+    </div>
+    <div class="legend">
+      <span><b>500</b> body on light</span>
+      <span><b>300</b> body on dark</span>
+      <span><b>900</b> heading on light</span>
+      <span><b>100</b> hairline / rule</span>
+    </div>
+  </div>
+</body></html>

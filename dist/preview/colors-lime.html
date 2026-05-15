@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 14px 0 22px; }
+  .swatch { aspect-ratio: 1/1.05; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,0.08); position: relative; }
+  .swatch .name { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+  .swatch .hex  { font-family: var(--font-mono); font-size: 11px; opacity: 0.85; }
+  .swatch.star::after { content: "★"; position: absolute; top: 8px; right: 10px; font-size: 16px; color: rgba(10,18,36,0.6); }
+
+  .demo { margin-top: 8px; padding: 28px; background: var(--arda-navy-900); border: 1px solid var(--rule-on-dark); border-radius: 12px; }
+  .demo-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .btn-lime {
+    background: var(--arda-lime-500); color: var(--arda-navy-1000);
+    font-family: var(--font-body); font-weight: 700; font-size: 14px;
+    padding: 12px 22px; border-radius: 6px; border: 0;
+    box-shadow: 0 0 0 1px rgba(199,242,63,0.30), 0 4px 18px -4px rgba(199,242,63,0.55);
+  }
+  .head-demo {
+    font-family: var(--font-display); font-weight: 800; font-size: 36px;
+    line-height: 1.05; letter-spacing: -0.025em; color: #fff;
+  }
+  .head-demo em { font-style: normal; color: var(--arda-lime-500); }
+  .rule { width: 56px; height: 4px; background: var(--arda-lime-500); border-radius: 2px; }
+  .num { font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: var(--arda-lime-500); }
+  .num small { font-size: 24px; opacity: 0.6; }
+  .caption { margin-top: 14px; font-size: 12px; color: var(--arda-slate-300); line-height: 1.5; }
+  .caption b { color: #fff; font-weight: 600; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="eyebrow" style="color: var(--arda-lime-400)">Primary accent · Lime</div>
+    <div class="row">
+      <div class="swatch" style="background:#8EB31E;color:#0A1224"><span class="name">Lime 700</span><span class="hex">#8EB31E</span></div>
+      <div class="swatch" style="background:#A6CC2E;color:#0A1224"><span class="name">Lime 600</span><span class="hex">#A6CC2E</span></div>
+      <div class="swatch star" style="background:#C7F23F;color:#0A1224"><span class="name">Lime 500</span><span class="hex">#C7F23F</span></div>
+      <div class="swatch" style="background:#D5F76A;color:#0A1224"><span class="name">Lime 400</span><span class="hex">#D5F76A</span></div>
+      <div class="swatch" style="background:#E0F895;color:#0A1224"><span class="name">Lime 300</span><span class="hex">#E0F895</span></div>
+      <div class="swatch" style="background:#F3FBD4;color:#0A1224"><span class="name">Lime 100</span><span class="hex">#F3FBD4</span></div>
+    </div>
+    <div class="demo">
+      <div class="head-demo">AI you can defend<br/><em>to your regulator.</em></div>
+      <div class="rule" style="margin: 22px 0;"></div>
+      <div class="demo-row">
+        <button class="btn-lime">Book the deep-dive</button>
+        <div class="num">99.99<small>%</small></div>
+      </div>
+      <div class="caption"><b>Usage rule.</b> Lime carries the eye-magnet moments — headline emphasis, primary CTA, stat numerals, section rules. Pairs only with navy text for legibility — never white-on-lime. One lime moment per surface; if you want to add a second, you're decorating.</div>
+    </div>
+  </div>
+</body></html>

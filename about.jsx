@@ -9,7 +9,7 @@ function AboutPage() {
       <section className="page-hero bg-pattern">
         <div className="container">
           <Breadcrumb items={[{ label: "Arda", href: "index.html" }, { label: "About" }]} />
-          <div className="eyebrow" style={{ marginTop: 28 }}>About · The wedge thesis</div>
+          <div className="eyebrow eyebrow-lime" style={{ marginTop: 28 }}>About · The wedge thesis</div>
           <h1 className="display" style={{ marginTop: 18, maxWidth: "20ch" }}>
             We exist because the <span className="accent">second tier</span> can't run on hyperscaler defaults.
           </h1>

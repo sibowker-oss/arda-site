@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .tile { padding: 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: var(--arda-navy-800); }
+  .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 10px; }
+  .lab { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--arda-slate-300); }
+  .name { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin-top: 4px; color: #fff; }
+  .hex { font-family: var(--font-mono); font-size: 12px; color: var(--arda-slate-400); margin-top: 2px; }
+  .use { font-size: 12px; line-height: 1.45; color: var(--arda-slate-300); margin-top: 12px; }
+  .lead { font-size: 13px; line-height: 1.5; color: var(--arda-slate-300); margin-bottom: 18px; max-width: 56ch; }
+  .lead b { color: #fff; font-weight: 600; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="eyebrow" style="margin-bottom:10px">Semantic · the boundary metaphor</div>
+    <p class="lead">Load-bearing colours. Lime carries every "inside the boundary" claim; alert magenta carries every "outside." Warn is a third state for partial / contractual coverage, used sparingly. Never decoration — each appearance carries audit meaning.</p>
+
+    <div class="grid">
+      <div class="tile">
+        <div class="lab"><span class="dot" style="background:#C7F23F"></span>OK · inside boundary</div>
+        <div class="name">Inside boundary</div>
+        <div class="hex">#C7F23F · --arda-ok</div>
+        <div class="use">Pass · approved · "stays in your environment." Same colour as the brand accent — sovereignty <em>is</em> the brand.</div>
+      </div>
+      <div class="tile">
+        <div class="lab"><span class="dot" style="background:#F59E0B"></span>Warn · partial cover</div>
+        <div class="name">Contractual</div>
+        <div class="hex">#F59E0B · --arda-warn</div>
+        <div class="use">Provider isolation · DPA-only · audit gaps. Used rarely — most claims resolve to a pass or fail.</div>
+      </div>
+      <div class="tile">
+        <div class="lab"><span class="dot" style="background:#FF3366"></span>Risk · outside boundary</div>
+        <div class="name">Data egress</div>
+        <div class="hex">#FF3366 · --arda-risk</div>
+        <div class="use">Fail · banned · third-party LLM call · audit failure. The signal the CISO is looking for.</div>
+      </div>
+    </div>
+  </div>
+</body></html>

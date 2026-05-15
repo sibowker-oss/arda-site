@@ -1,0 +1,37 @@
+/* Shared base for every preview card. Each card is ~700×<height>px,
+   no chrome, no titles — the card name renders outside in the host. */
+@import url("../colors_and_type.css");
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  width: 700px;
+  font-family: var(--font-body);
+  font-size: var(--t-md);
+  color: var(--fg-on-light);
+  background: var(--bg-canvas-light);
+}
+
+body.on-dark {
+  background: var(--bg-canvas-dark);
+  color: var(--fg-on-dark);
+}
+
+.card {
+  padding: 28px;
+  position: relative;
+}
+
+.row { display: flex; align-items: stretch; gap: 12px; }
+.col { display: flex; flex-direction: column; gap: 12px; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--arda-slate-400);
+}
+.on-dark .eyebrow { color: var(--arda-slate-300); }

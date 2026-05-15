@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .frame {
+    border: 1.5px dashed rgba(173,194,255,0.45);
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+    background:
+      linear-gradient(rgba(39,93,246,0.06), rgba(39,93,246,0.02)),
+      var(--bg-surface-dark);
+  }
+  .frame-lab {
+    position: absolute; top: -10px; left: 16px;
+    background: var(--bg-canvas-dark); padding: 0 10px;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 700; color: var(--arda-slate-300);
+  }
+  .nodes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .node {
+    background: var(--bg-card-dark);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 8px;
+    padding: 12px 12px 10px;
+    display: flex; flex-direction: column; gap: 6px;
+    min-height: 90px;
+  }
+  .node img { width: 22px; height: 22px; }
+  .node b { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: #fff; }
+  .node span { font-size: 11px; color: var(--arda-slate-300); line-height: 1.3; }
+  .node.core {
+    background: rgba(39,93,246,0.10);
+    border-color: rgba(77,123,255,0.45);
+  }
+  .ext {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: 1px dashed rgba(255,138,138,0.45);
+    border-radius: 8px;
+    display: flex; gap: 12px; align-items: center;
+    color: #FFB3B3; font-size: 12px;
+  }
+  .ext img { width: 18px; height: 18px; opacity: 0.85; }
+  .ext b { color: #FF8A8A; font-weight: 700; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="frame">
+      <div class="frame-lab">Your trust boundary</div>
+      <div class="nodes">
+        <div class="node core"><img src="../assets/icons/sparkle.png" alt=""><b>Arda Core</b><span>Web client · RBAC</span></div>
+        <div class="node core"><img src="../assets/icons/code.png" alt=""><b>Arda Code</b><span>IDE plugin</span></div>
+        <div class="node"><img src="../assets/icons/secure-data.png" alt=""><b>Vector store</b><span>Encrypted index</span></div>
+        <div class="node"><img src="../assets/icons/chip.png" alt=""><b>GPU pool</b><span>Open-weight LLMs</span></div>
+      </div>
+    </div>
+    <div class="ext">
+      <img src="../assets/icons/no-entry.png" alt="">
+      <span><b>Outside boundary</b> · No external API calls · No model training on your data · No data egress, ever</span>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: #fff; }
+  .row { display: grid; grid-template-columns: 110px 1fr; align-items: baseline; gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--rule-on-light); }
+  .row:last-child { border: 0; }
+  .lab { font-family: var(--font-mono); font-size: 11px; color: var(--fg-on-light-faint); padding-top: 6px; }
+  .lab b { display: block; color: var(--fg-on-light-muted); font-family: var(--font-body); font-weight: 700; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 2px; }
+  .meta { color: var(--fg-on-light-muted); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; padding: 0 0 12px; }
+  .lead { font-size: 22px; line-height: 1.4; color: var(--fg-on-light); }
+  .body { font-size: 16px; line-height: 1.5; color: var(--fg-on-light); }
+  .small { font-size: 14px; line-height: 1.5; color: var(--fg-on-light-muted); }
+  .meta-t { font-size: 12px; letter-spacing: 0.04em; color: var(--fg-on-light-faint); text-transform: uppercase; font-weight: 600; }
+  .eyebrow-t { font-size: 12px; letter-spacing: 0.16em; color: var(--arda-lime-500); font-weight: 700; text-transform: uppercase; }
+  .mono { font-family: var(--font-mono); font-size: 13px; color: var(--fg-on-light-muted); }
+</style></head>
+<body>
+  <div class="card">
+    <div class="meta">Titillium Web · 400 / 600 / 700 · Body & UI</div>
+    <div class="row"><div class="lab"><b>Eyebrow</b>12 · 0.16em</div><div class="eyebrow-t">Sovereign AI for regulated enterprise</div></div>
+    <div class="row"><div class="lab"><b>Lead</b>22 / 1.4</div><div class="lead">Run AI inside your environment, with the audit trail your CISO and your regulator expect.</div></div>
+    <div class="row"><div class="lab"><b>Body</b>16 / 1.5</div><div class="body">Arda is the platform regulated enterprises own, operate and govern — without changing their security model. Open weights, dedicated GPU, fixed costs.</div></div>
+    <div class="row"><div class="lab"><b>Small</b>14 / 1.5</div><div class="small">Sources: Gartner 2025–2026 · OpenAI enterprise data · Capgemini agentic AI report.</div></div>
+    <div class="row"><div class="lab"><b>Meta</b>12 · 0.04em</div><div class="meta-t">CONFIDENTIAL · MAY 2026 · 04 / 12</div></div>
+    <div class="row"><div class="lab"><b>Mono</b>13 · JetBrains</div><div class="mono">POST /v1/chat &nbsp; tenant=acme &nbsp; egress=0 &nbsp; 200 OK</div></div>
+  </div>
+</body></html>

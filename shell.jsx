@@ -1,38 +1,27 @@
 /* eslint-disable */
-// Shared layout components for arda — nav, footer, brand, page wrapper
-// Loaded as Babel script. Exposes: BrandMark, Nav, Footer, Page, applyTheme.
+// Shared layout components for Arda — nav, footer, page wrapper.
+// Loaded as a Babel script. Exposes: Brand, Nav, Footer, Page, applyTheme.
+// v3: tweaks panel removed, ARDA wordmark PNG replaces the inline SVG mark.
 
 const ARDA_NAV = [
   { label: "Platform", href: "platform.html" },
   { label: "Products", href: "core.html", children: [
-    { label: "Arda Core", desc: "Sovereign chat", href: "core.html" },
-    { label: "Arda Code", desc: "Sovereign coding assistant", href: "code.html" },
-    { label: "Arda Index", desc: "Sovereign knowledge & search", href: "index-product.html" },
+    { label: "Arda Core",  desc: "Sovereign chat",                    href: "core.html" },
+    { label: "Arda Code",  desc: "Sovereign coding assistant",        href: "code.html" },
+    { label: "Arda Index", desc: "Sovereign knowledge & search",      href: "index-product.html" },
   ]},
   { label: "Industries", href: "industry-energy.html", children: [
-    { label: "Energy networks", desc: "Transmission & distribution", href: "industry-energy.html" },
-    { label: "Financial services", desc: "Banks, insurers, super", href: "industry-fsi.html" },
+    { label: "Energy networks",       desc: "Transmission & distribution", href: "industry-energy.html" },
+    { label: "Financial services",    desc: "Banks, insurers, super",      href: "industry-fsi.html" },
   ]},
-  { label: "About", href: "about.html" },
+  { label: "About",   href: "about.html" },
   { label: "Contact", href: "contact.html" },
 ];
-
-function BrandMark({ size = 22 }) {
-  // Compass / target glyph, matches the deck's small lockup mark
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="10.25" stroke="currentColor" strokeWidth="1.25" />
-      <circle cx="12" cy="12" r="1.6" fill="currentColor" />
-      <path d="M12 2.5V6 M12 18V21.5 M2.5 12H6 M18 12H21.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 function Brand({ href = "index.html" }) {
   return (
     <a href={href} className="brand" aria-label="Arda — home">
-      <span className="brand-mark"><BrandMark /></span>
-      <span>Arda</span>
+      <img src="design-system/assets/arda-logo-white.png" alt="Arda" />
     </a>
   );
 }
@@ -53,14 +42,16 @@ function NavLinks({ active }) {
             >
               <a href={item.href} className={isActive ? "active" : ""} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                 {item.label}
-                <svg width="9" height="9" viewBox="0 0 10 10" style={{ opacity: 0.6 }}><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" /></svg>
+                <svg width="9" height="9" viewBox="0 0 10 10" style={{ opacity: 0.6 }} aria-hidden="true">
+                  <path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+                </svg>
               </a>
               {open === item.label && (
                 <div className="nav-dropdown">
                   {item.children.map((c) => (
                     <a key={c.label} href={c.href} className="nav-dropdown-item">
-                      <div style={{ fontWeight: 500, color: "var(--text)" }}>{c.label}</div>
-                      <div className="small" style={{ marginTop: 2 }}>{c.desc}</div>
+                      <div style={{ fontWeight: 700, color: "var(--text)", fontSize: 14 }}>{c.label}</div>
+                      <div className="small" style={{ marginTop: 2, fontSize: 13 }}>{c.desc}</div>
                     </a>
                   ))}
                 </div>
@@ -85,30 +76,36 @@ function Nav({ active }) {
         <Brand />
         <NavLinks active={active} />
         <div className="nav-cta">
-          <a href="contact.html" className="btn btn-ghost" style={{ padding: "9px 16px", fontSize: 14 }}>
-            Talk to Arda
+          <a href="contact.html" className="btn btn-primary" style={{ padding: "10px 18px", fontSize: 13 }}>
+            Book an architecture review
           </a>
         </div>
       </div>
       <style>{`
         .nav-dropdown {
-          position: absolute; top: calc(100% + 12px); left: -16px;
+          position: absolute; top: calc(100% + 14px); left: -16px;
           min-width: 320px;
-          background: var(--bg-2);
-          border: 1px solid var(--border-strong);
-          border-radius: 4px;
+          background: var(--arda-navy-800);
+          border: 1px solid var(--rule-on-dark-strong);
+          border-radius: var(--r-lg);
           padding: 10px;
           display: grid; gap: 2px;
           box-shadow: var(--shadow-lg);
-          animation: rise 180ms ease both;
+          animation: rise 180ms var(--ease-out) both;
+        }
+        [data-theme="light"] .nav-dropdown {
+          background: #fff;
+          border-color: var(--rule-on-light-strong);
         }
         .nav-dropdown-item {
           padding: 12px 14px;
-          border-radius: 3px;
+          border-radius: var(--r-sm);
           color: var(--text-2);
-          transition: background 160ms ease;
+          transition: background 160ms var(--ease-out);
         }
-        .nav-dropdown-item:hover { background: color-mix(in oklab, var(--accent) 8%, transparent); }
+        .nav-dropdown-item:hover {
+          background: rgba(199,242,63,0.08);
+        }
       `}</style>
     </nav>
   );
@@ -121,11 +118,10 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-col">
             <a href="index.html" className="brand" style={{ marginBottom: 18, display: "inline-flex" }}>
-              <span className="brand-mark"><BrandMark /></span>
-              <span>Arda</span>
+              <img src="design-system/assets/arda-logo-white.png" alt="Arda" />
             </a>
             <p className="footer-boilerplate">
-              Arda is the sovereign AI platform regulated enterprises Own, Operate and Govern — so they can adopt AI without changing their security posture.
+              Arda is the sovereign AI platform regulated enterprises own, operate and govern — inside their own trust boundary, with the audit trail their CISO and their regulator expect.
             </p>
           </div>
           <div className="footer-col">
@@ -156,7 +152,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-meta">
-          <span>© 2026 Arda Technologies</span>
+          <span>© 2026 Arda Computing</span>
           <span>Sydney · Melbourne</span>
           <span>AESCSF · APRA CPS 234 / 230 · SOCI Act · SOC 2 Type II</span>
           <span style={{ marginLeft: "auto" }}>Inside the boundary. Audit-grade. Sovereign by design.</span>
@@ -166,21 +162,11 @@ function Footer() {
   );
 }
 
-// ---- Theme / density / hero variant — read from #__arda_state script tag, persist via tweaks-panel host -----
-function readARDAState() {
-  try {
-    const el = document.getElementById("__arda_state");
-    if (!el) return {};
-    return JSON.parse(el.textContent || "{}");
-  } catch (e) { return {}; }
-}
-
+// ---- Theme bootstrap — v3 is dark by default. Light theme available via [data-theme="light"] on <html>. ----
 function applyTheme() {
-  const s = readARDAState();
-  const theme = s.theme || "dark";
-  const density = s.density || "default";
-  document.documentElement.setAttribute("data-theme", theme);
-  document.documentElement.setAttribute("data-density", density);
+  if (!document.documentElement.hasAttribute("data-theme")) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
 }
 
 function Page({ active, children }) {
@@ -194,4 +180,4 @@ function Page({ active, children }) {
   );
 }
 
-Object.assign(window, { BrandMark, Brand, Nav, Footer, Page, applyTheme, ARDA_NAV });
+Object.assign(window, { Brand, Nav, Footer, Page, applyTheme, ARDA_NAV });

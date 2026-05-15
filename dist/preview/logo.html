@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .card { padding: 0; }
+  .stack { display: grid; grid-template-rows: 1fr auto; }
+  .stage {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid var(--rule-on-dark);
+    background: var(--arda-navy-1000);
+    padding: 0 48px;
+  }
+  .stage img { display: block; max-width: 80%; height: auto; }
+  .row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--rule-on-dark);
+  }
+  .cell {
+    padding: 24px; min-height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    border-right: 1px solid var(--rule-on-dark);
+    background: var(--arda-navy-1000);
+    position: relative;
+  }
+  .cell:last-child { border-right: 0; }
+  .cell img { display: block; }
+  .cell--mark img { max-height: 70px; }
+  .cell--small img { max-height: 28px; }
+  .cell--med img { max-height: 44px; }
+  .cell__cap {
+    position: absolute; bottom: 8px; left: 12px;
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--arda-slate-400); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .meta {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 28px;
+    font-size: 12px;
+    color: var(--arda-slate-400);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  .meta b { color: var(--arda-slate-200); font-weight: 600; }
+</style></head>
+<body>
+  <div class="card stack">
+    <div class="stage">
+      <img src="../assets/arda-logo-white.png" alt="Arda">
+    </div>
+    <div class="row">
+      <div class="cell cell--mark"><span class="cell__cap">Mark only · favicon, share</span><img src="../assets/arda-mark-white.png" alt="Arda mark"></div>
+      <div class="cell cell--med"><span class="cell__cap">44px · footer, slide title</span><img src="../assets/arda-logo-white.png" alt="Arda 44"></div>
+      <div class="cell cell--small"><span class="cell__cap">28px · web header</span><img src="../assets/arda-logo-white.png" alt="Arda 28"></div>
+    </div>
+    <div class="meta">
+      <span><b>Lockup</b> · target mark + ARDA wordmark · white only on navy</span>
+      <span>v3 · 2026.05</span>
+    </div>
+  </div>
+</body></html>
