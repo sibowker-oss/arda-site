@@ -58,7 +58,7 @@ function IndustryPage({ id }) {
       <section className="page-hero bg-pattern">
         <div className="container">
           <Breadcrumb items={[{ label: "Arda", href: "index.html" }, { label: "Industries" }, { label: d.code.split(" · ")[0] }]} />
-          <div className="eyebrow" style={{ marginTop: 28, color: d.accent }}>{d.code} <span style={{ opacity: 0.4, margin: "0 10px" }}>·</span> {d.sector}</div>
+          <div className="eyebrow eyebrow-lime" style={{ marginTop: 28 }}>{d.code} <span style={{ opacity: 0.4, margin: "0 10px" }}>·</span> {d.sector}</div>
           <h1 className="display" style={{ marginTop: 18, maxWidth: "20ch" }}>{d.title}</h1>
           <p className="lead" style={{ marginTop: 24, maxWidth: "60ch" }}>{d.sub}</p>
         </div>

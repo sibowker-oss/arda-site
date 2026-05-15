@@ -1,113 +1,99 @@
 /* eslint-disable */
-// Homepage sections — composed in index.html
+// Homepage sections · v3 (Static palette: navy + lime + alert magenta).
+// Composed by app.jsx into <Page active="home">.
 
-const HEROES = {
-  A: {
-    eyebrow: "Sovereign AI · For regulated enterprises",
-    title: "AI you can defend to your regulator.",
-    sub: "Arda is the sovereign AI platform regulated enterprises Own, Operate and Govern — inside their own trust boundary, with the audit trail their CISO and regulator expect.",
-  },
-  B: {
-    eyebrow: "Own. Operate. Govern.",
-    title: "The AI you own. Operate. Govern.",
-    sub: "For Australia's most regulated organisations — energy networks, banks, insurers — Arda runs the AI workloads that cannot leave your boundary.",
-  },
-  C: {
-    eyebrow: "Inside the boundary",
-    title: "Sovereign AI for the workloads that can't leave the boundary.",
-    sub: "Chat, code and enterprise search inside your environment. Your data stays inside. Your model decisions stay yours. Your audit trail is ready when the regulator asks.",
-  },
-};
-
-function Hero({ variant = "C" }) {
-  const h = HEROES[variant] || HEROES.C;
+function Hero() {
   return (
     <section className="hero bg-pattern">
       <div className="container-wide">
         <div className="hero-grid">
           <div className="hero-copy">
-            <div className="eyebrow rise">{h.eyebrow}</div>
-            <h1 className="display rise rise-2" style={{ marginTop: 22 }}>{h.title}</h1>
-            <p className="lead rise rise-3" style={{ marginTop: 28, maxWidth: "62ch" }}>{h.sub}</p>
+            <div className="eyebrow eyebrow-lime rise">Sovereign AI · for regulated enterprises</div>
+            <h1 className="display rise rise-2" style={{ marginTop: 22 }}>
+              AI you can defend<br />
+              <span className="accent">to your regulator.</span>
+            </h1>
+            <p className="lead rise rise-3" style={{ marginTop: 28, maxWidth: "60ch" }}>
+              Arda is the sovereign AI platform regulated enterprises own, operate and govern — inside their own trust boundary, with the audit trail their CISO and their regulator expect.
+            </p>
             <div className="hero-cta rise rise-4">
-              <a href="contact.html" className="btn btn-primary">Book an architecture review<span aria-hidden>→</span></a>
-              <a href="platform.html" className="btn btn-ghost">See how it works</a>
+              <a href="contact.html" className="btn btn-primary btn-lg">Book an architecture review<span aria-hidden>→</span></a>
+              <a href="platform.html" className="btn btn-ghost btn-lg">See the architecture</a>
             </div>
-            <div className="hero-receipts rise rise-4">
-              <div><span className="mono">01</span> Inside the boundary</div>
-              <div><span className="mono">02</span> Audit-grade</div>
-              <div><span className="mono">03</span> Sovereign by design</div>
+            <div className="hero-foot rise rise-4">
+              <strong>Sovereignty here</strong> means control, operation and governance — not location.
             </div>
           </div>
-          <aside className="hero-frame rise rise-3">
+          <aside className="hero-frame rise rise-3" aria-label="Inside the trust boundary">
             <div className="hero-frame-head">
-              <span className="mono small">arda://trust-boundary</span>
-              <span className="dot" /> <span className="tiny mono">live</span>
+              <span className="mono small" style={{ color: "var(--text-3)" }}>arda://trust-boundary</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--arda-lime-500)" }}>
+                <span className="dot" /> <span className="tiny mono">live</span>
+              </span>
             </div>
             <div className="hero-frame-body">
               <div className="boundary">
-                <div className="boundary-label mono">your trust boundary</div>
+                <div className="boundary-label">your trust boundary</div>
                 <div className="boundary-grid">
                   <div className="b-cell">
-                    <div className="b-cell-label mono">core</div>
+                    <div className="b-cell-label">core</div>
                     <div className="b-cell-title">Chat</div>
                     <div className="b-cell-meta">28 users · prompts retained 0d</div>
                   </div>
                   <div className="b-cell">
-                    <div className="b-cell-label mono">code</div>
+                    <div className="b-cell-label">code</div>
                     <div className="b-cell-title">IDE assistant</div>
                     <div className="b-cell-meta">repo-aware · no egress</div>
                   </div>
                   <div className="b-cell">
-                    <div className="b-cell-label mono">index</div>
+                    <div className="b-cell-label">index</div>
                     <div className="b-cell-title">Enterprise search</div>
                     <div className="b-cell-meta">RBAC-bound retrieval</div>
                   </div>
                   <div className="b-cell">
-                    <div className="b-cell-label mono">audit</div>
+                    <div className="b-cell-label">audit</div>
                     <div className="b-cell-title">Immutable log</div>
                     <div className="b-cell-meta">AESCSF · CPS 234</div>
                   </div>
                 </div>
                 <div className="boundary-foot">
-                  <span className="tiny mono">egress</span>
+                  <span className="tiny mono" style={{ color: "var(--text-3)" }}>egress</span>
                   <span className="bar"><span className="bar-fill" style={{ width: "0%" }} /></span>
-                  <span className="tiny mono">0 / 0</span>
+                  <span className="tiny mono" style={{ color: "var(--arda-lime-500)" }}>0 / 0</span>
                 </div>
               </div>
               <div className="outside">
-                <div className="tiny mono" style={{ color: "var(--text-3)" }}>outside · hyperscaler frontier model APIs</div>
-                <div className="outside-line" />
+                <span className="outside-mark" aria-hidden>×</span>
+                <span>outside · hyperscaler frontier model APIs</span>
               </div>
             </div>
           </aside>
         </div>
       </div>
       <style>{`
-        .hero { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+        .hero { padding-top: clamp(64px, 7vw, 104px); padding-bottom: clamp(64px, 7vw, 104px); }
         .hero-grid {
           display: grid;
-          grid-template-columns: 1.15fr 0.85fr;
-          gap: clamp(32px, 4vw, 80px);
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: clamp(32px, 4vw, 72px);
           align-items: center;
         }
         @media (max-width: 1000px) { .hero-grid { grid-template-columns: 1fr; } }
         .hero-cta { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
-        .hero-receipts {
-          margin-top: 56px;
-          display: flex; flex-wrap: wrap;
-          gap: 28px 40px;
-          color: var(--text-3);
-          font-size: 14px;
+        .hero-foot {
+          margin-top: 48px;
+          padding-top: 22px;
           border-top: 1px solid var(--hairline);
-          padding-top: 24px;
+          font-size: 14px;
+          color: var(--text-2);
+          max-width: 560px;
         }
-        .hero-receipts .mono { color: var(--accent); margin-right: 10px; letter-spacing: 0.16em; font-size: 11.5px; }
+        .hero-foot strong { color: var(--text); font-weight: 700; }
 
         .hero-frame {
-          background: var(--bg-card-strong);
+          background: var(--bg-card);
           border: 1px solid var(--border-strong);
-          border-radius: 4px;
+          border-radius: var(--r-lg);
           overflow: hidden;
         }
         [data-theme="dark"] .hero-frame { box-shadow: var(--shadow-lg); }
@@ -116,42 +102,61 @@ function Hero({ variant = "C" }) {
           display: flex; align-items: center; justify-content: space-between;
           padding: 12px 16px;
           border-bottom: 1px solid var(--hairline);
-          color: var(--text-3);
           gap: 8px;
         }
-        .hero-frame-body { padding: 22px; }
+        .hero-frame-body { padding: 24px; }
         .boundary {
-          border: 1px dashed color-mix(in oklab, var(--accent) 50%, transparent);
-          border-radius: 3px;
-          padding: 22px 18px 14px;
+          border: 1.5px dashed rgba(199,242,63,0.45);
+          border-radius: var(--r-md);
+          padding: 24px 18px 16px;
           position: relative;
-          background: color-mix(in oklab, var(--accent) 4%, transparent);
+          background: rgba(199,242,63,0.04);
         }
         .boundary-label {
-          position: absolute; top: -9px; left: 16px;
-          background: var(--bg-card-strong);
+          position: absolute; top: -9px; left: 18px;
+          background: var(--bg-card);
           padding: 0 10px;
-          font-size: 10.5px;
-          color: var(--accent);
-          letter-spacing: 0.18em;
+          font-family: var(--font-body);
+          font-size: 11px; font-weight: 700;
+          color: var(--arda-lime-500);
+          letter-spacing: 0.16em;
           text-transform: uppercase;
         }
-        .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
         .b-cell {
-          padding: 14px 14px 12px;
-          background: var(--bg);
+          padding: 14px;
+          background: var(--bg-2);
           border: 1px solid var(--border);
-          border-radius: 3px;
-          min-height: 92px;
+          border-radius: var(--r-sm);
+          min-height: 96px;
         }
-        .b-cell-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
-        .b-cell-title { font-size: 16px; font-weight: 600; margin-top: 6px; }
-        .b-cell-meta { font-size: 12px; color: var(--text-3); margin-top: 4px; }
-        .boundary-foot { display: flex; align-items: center; gap: 10px; padding-top: 8px; }
-        .bar { flex: 1; height: 4px; background: var(--bg); border-radius: 2px; overflow: hidden; }
-        .bar-fill { display: block; height: 100%; background: var(--accent); }
-        .outside { margin-top: 14px; padding: 10px 6px 0; }
-        .outside-line { height: 1px; background: var(--hairline); margin-top: 8px; }
+        .b-cell-label {
+          font-family: var(--font-mono);
+          font-size: 10px; letter-spacing: 0.20em;
+          text-transform: uppercase; color: var(--arda-lime-500);
+        }
+        .b-cell-title { font-size: 15px; font-weight: 700; margin-top: 6px; color: var(--text); }
+        .b-cell-meta { font-size: 12px; color: var(--text-3); margin-top: 4px; font-family: var(--font-mono); }
+        .boundary-foot { display: flex; align-items: center; gap: 10px; padding-top: 4px; }
+        .bar { flex: 1; height: 4px; background: var(--bg-2); border-radius: 2px; overflow: hidden; }
+        .bar-fill { display: block; height: 100%; background: var(--arda-lime-500); }
+        .outside {
+          margin-top: 18px;
+          padding: 12px 14px;
+          display: flex; align-items: center; gap: 12px;
+          border: 1px dashed rgba(255,51,102,0.40);
+          border-radius: var(--r-sm);
+          background: rgba(255,51,102,0.04);
+          font-size: 13px; color: var(--text-2);
+        }
+        .outside-mark {
+          width: 22px; height: 22px; border-radius: 50%;
+          background: rgba(255,51,102,0.18);
+          color: var(--arda-alert-500);
+          display: inline-flex; align-items: center; justify-content: center;
+          font-family: var(--font-display); font-weight: 800; font-size: 16px; line-height: 1;
+          flex: 0 0 auto;
+        }
       `}</style>
     </section>
   );
@@ -168,7 +173,7 @@ function Vision() {
           <div>
             <h2 className="h-xl">
               Different workloads.<br />Different stacks.<br />
-              <span style={{ color: "var(--accent)" }}>Sovereign by architecture, not aspiration.</span>
+              <span className="accent">Sovereign by architecture, not aspiration.</span>
             </h2>
             <p className="lead" style={{ marginTop: 28 }}>
               Day-to-day productivity AI will run where it makes sense — Microsoft, Google, Anthropic. Fast, cheap, and good enough for the security model.
@@ -183,177 +188,217 @@ function Vision() {
         </div>
       </div>
       <style>{`
-        .vision-grid { display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 80px); }
+        .vision-grid { display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 72px); }
         @media (max-width: 900px) { .vision-grid { grid-template-columns: 1fr; } }
       `}</style>
     </section>
   );
 }
 
-const PILLARS = [
+const OOG_ITEMS = [
   {
     n: "01",
-    verb: "Own",
+    eyebrow: "Own",
+    glyph: "O",
     title: "Custody, not access.",
-    sub: "Custody of the data, the model, and the audit trail.",
-    defend: [
-      ["No prompt or response", "leaves the trust boundary."],
-      ["No customer data", "trains shared or external models."],
-      ["Model weights", "remain under customer control — open-weight."],
-      ["Vector indices and embeddings", "stay in customer custody."],
-      ["The audit trail", "is the customer's record, not the vendor's."],
-    ],
-    deliver: [
-      ["Deployment", "inside the customer's network — Arda cannot touch the data."],
-      ["Open-weight models", "on customer-controlled GPU infrastructure."],
-      ["Vector store, embeddings, retrieval", "live inside the boundary."],
-      ["Immutable audit log", "persisted in customer storage, customer-keyed."],
-      ["Contractual guarantee", "zero data egress, no training on customer data."],
-    ],
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden>
-        <path d="M16 4 L26 9 V16 C26 21.5 22 25.5 16 28 C10 25.5 6 21.5 6 16 V9 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M11.5 16 L15 19 L20.5 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    body: "Custody of the data, the model, and the audit trail. No prompt or response leaves the trust boundary. Vector indices, embeddings and weights stay inside.",
+    proof: "Zero data egress · contractual and architectural.",
   },
   {
     n: "02",
-    verb: "Operate",
+    eyebrow: "Operate",
+    glyph: "P",
     title: "Inside your environment.",
-    sub: "Runs in your environment, on your terms.",
-    defend: [
-      ["No new trust boundary", ", no new identity store."],
-      ["Plugs into existing IdP, RBAC and SSO", " — agents inherit user permissions."],
-      ["Operable by the platform team", "that already runs the rest of the stack."],
-      ["Deployment options", "match the customer's reality, not a vendor SKU."],
-      ["Cost behaviour", "is predictable and defensible to a board."],
-    ],
-    deliver: [
-      ["Identity integration", "with Okta, Azure AD, and standard enterprise IdPs."],
-      ["Deployable in", "private cloud, customer data centre, or hybrid."],
-      ["Standard ops surfaces", "— observability, traces, logs, capacity controls."],
-      ["Open-weight models", "on dedicated infrastructure: cost flat as usage grows."],
-      ["Three-year cost curve", "modelled against API-priced cloud AI for board review."],
-    ],
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden>
-        <rect x="5" y="9" width="22" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M5 14 H27 M10 14 V23 M22 14 V23 M16 17 H16.01 M10 17 H10.01 M22 17 H22.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
+    body: "No new trust boundary. No new identity store. Plugs into your IdP, your RBAC, your SIEM. Operable by the platform team that runs the rest of the stack.",
+    proof: "Same controls · same logs · same posture.",
   },
   {
     n: "03",
-    verb: "Govern",
+    eyebrow: "Govern",
+    glyph: "G",
     title: "Evidence on demand.",
-    sub: "Audit-grade by default. Evidence on demand.",
-    defend: [
-      ["Every prompt, retrieval, tool call and output", "— logged and queryable."],
-      ["Aligned to the regulators", "the customer already answers to."],
-      ["Policy-as-code", "guardrails reviewable by risk and legal."],
-      ["Evidence pack", "producible for a regulator without a six-month audit."],
-      ["Human-in-loop gates", "for high-sensitivity outputs and actions."],
-    ],
-    deliver: [
-      ["Immutable audit log", "end-to-end lineage from prompt to output."],
-      ["Alignment to AESCSF", "APRA CPS 234 / 230, SOCI Act, SOC 2 Type II."],
-      ["Versioned policy", "model registry, change control, SBOM for the platform."],
-      ["Regulator-ready evidence templates", "produced in hours, not months."],
-      ["Approval queues", "and HITL flows for sensitive workflows."],
-    ],
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden>
-        <circle cx="14" cy="14" r="7" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M19.5 19.5 L26 26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M11 14 L13.5 16.5 L17.5 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    body: "Every prompt, retrieval, tool call and output — logged and queryable. Aligned to the regulators the customer already answers to. Evidence pack producible in hours, not months.",
+    proof: "AESCSF · CPS 234 / 230 · SOCI Act · SOC 2 Type II.",
   },
 ];
 
-function Pillars({ style = "cards" }) {
+function OwnOperateGovern() {
   return (
-    <section className="pillars">
+    <section className="oog" id="own-operate-govern">
       <div className="container">
         <div className="section-head">
-          <div className="section-label">Value pillars · Layer 04</div>
-          <h2 className="h-xl">Three verbs. Three claims.<br />Three sets of receipts.</h2>
+          <div className="section-label">The platform · Layer 02</div>
+          <h2 className="h-xl">Own. Operate. Govern.</h2>
+          <p className="lead">Three sub-claims, three proof points. The structural device the rest of this page is built on.</p>
+        </div>
+        <div className="oog-grid">
+          {OOG_ITEMS.map(it => (
+            <article className="oog-tile" key={it.n}>
+              <div className="oog-rule">
+                <span className="oog-num mono">{it.n}</span>
+                <span className="oog-glyph" aria-hidden>{it.glyph}</span>
+              </div>
+              <div className="eyebrow eyebrow-lime">{it.eyebrow}</div>
+              <h3 className="h-lg" style={{ marginTop: 6 }}>{it.title}</h3>
+              <p className="body" style={{ fontSize: 15 }}>{it.body}</p>
+              <div className="oog-proof mono">{it.proof}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .oog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 900px) { .oog-grid { grid-template-columns: 1fr; } }
+        .oog-tile {
+          position: relative;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          border-radius: var(--r-lg);
+          padding: 32px 28px;
+          display: flex; flex-direction: column; gap: 10px;
+          min-height: 360px;
+          transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+        }
+        .oog-tile:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+        [data-theme="light"] .oog-tile { box-shadow: var(--shadow-sm); }
+        .oog-rule {
+          display: flex; align-items: baseline; justify-content: space-between;
+          padding-bottom: 18px; margin-bottom: 4px;
+          border-bottom: 1px solid var(--border);
+        }
+        .oog-num { font-size: 12px; letter-spacing: 0.16em; color: var(--text-3); }
+        .oog-glyph {
+          font-family: var(--font-display);
+          font-weight: 800; font-size: 92px; line-height: 0.85;
+          letter-spacing: -0.05em;
+          color: var(--arda-lime-500);
+        }
+        .oog-proof {
+          margin-top: auto; padding-top: 18px;
+          font-size: 12px; letter-spacing: 0.02em;
+          color: var(--arda-lime-400);
+          border-top: 1px solid var(--border);
+        }
+        [data-theme="light"] .oog-proof { color: var(--arda-lime-700); }
+      `}</style>
+    </section>
+  );
+}
+
+const NODES = [
+  { tag: "USR", name: "Any employee",  sub: "Web client · Arda Core" },
+  { tag: "DEV", name: "Developer",     sub: "IDE plugin · Arda Code" },
+  { tag: "IDX", name: "Vector store",  sub: "Encrypted index" },
+  { tag: "OBS", name: "Logging & API", sub: "Audit · governance" },
+  { tag: "GPU", name: "GPU pool",      sub: "Open-weight LLMs" },
+  { tag: "IAM", name: "IdP & RBAC",    sub: "Okta · Entra · Ping" },
+];
+
+function BoundaryDiagram() {
+  return (
+    <section className="arch" id="architecture">
+      <div className="container">
+        <div className="section-head">
+          <div className="section-label">Architecture · Layer 03</div>
+          <h2 className="h-xl">Inside your trust boundary.</h2>
           <p className="lead">
-            The pillars are the structural device anywhere we have to substantiate the worldview. Three sections of a page. Three slides of a deck. Three answers in a security review.
+            The whole platform sits inside the perimeter your security team already runs. No new boundary to defend. No data to repatriate later.
           </p>
         </div>
 
-        {style === "cards" ? (
-          <div className="grid-3">
-            {PILLARS.map(p => (
-              <article key={p.n} className="card pillar-card">
-                <div className="card-header">
-                  <span className="card-num">{p.n}</span>
-                  <span className="eyebrow" style={{ color: "var(--accent)" }}>{p.verb.toUpperCase()}</span>
-                </div>
-                <div style={{ color: "var(--accent)", marginBottom: 18 }}>{p.icon}</div>
-                <h3 className="h-lg" style={{ marginBottom: 10 }}>{p.title}</h3>
-                <p className="body" style={{ fontSize: 15 }}>{p.sub}</p>
-                <a href={`platform.html#pillar-${p.verb.toLowerCase()}`} className="link-arrow" style={{ marginTop: 22, display: "inline-flex" }}>
-                  See the receipts <span className="arr">→</span>
-                </a>
-              </article>
+        <div className="arch-frame">
+          <div className="arch-frame-lab">your trust boundary</div>
+          <div className="arch-grid">
+            {NODES.map(n => (
+              <div className="arch-node" key={n.name}>
+                <span className="arch-tag mono">{n.tag}</span>
+                <b>{n.name}</b>
+                <span className="arch-sub">{n.sub}</span>
+              </div>
             ))}
           </div>
-        ) : (
-          <div className="pillars-stack">
-            {PILLARS.map(p => (
-              <article key={p.n} className="pillar-row">
-                <div className="pillar-row-lead">
-                  <div style={{ display: "flex", alignItems: "baseline", gap: 14 }}>
-                    <span className="card-num">{p.n}</span>
-                    <span className="eyebrow" style={{ color: "var(--accent)" }}>{p.verb.toUpperCase()}</span>
-                  </div>
-                  <h3 className="h-lg" style={{ marginTop: 16 }}>{p.title}</h3>
-                </div>
-                <div className="pillar-row-defend">
-                  <div className="tiny mono" style={{ color: "var(--accent)", marginBottom: 12, letterSpacing: "0.16em", textTransform: "uppercase" }}>
-                    What the buyer needs to defend
-                  </div>
-                  <ul className="proof-list">
-                    {p.defend.map((row, i) => (
-                      <li key={i}><strong>{row[0]}</strong> {row[1]}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="pillar-row-deliver">
-                  <div className="tiny mono" style={{ color: "var(--accent)", marginBottom: 12, letterSpacing: "0.16em", textTransform: "uppercase" }}>
-                    How Arda delivers it
-                  </div>
-                  <ul className="proof-list">
-                    {p.deliver.map((row, i) => (
-                      <li key={i}><strong>{row[0]}</strong> {row[1]}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+          <div className="arch-stamps">
+            <span className="tag tag-accent"><span className="dot" />No data egress</span>
+            <span className="tag tag-accent"><span className="dot" />No external API calls</span>
+            <span className="tag tag-accent"><span className="dot" />No training on your data</span>
           </div>
-        )}
+        </div>
+
+        <div className="arch-outside">
+          <div className="arch-outside-mark" aria-hidden>×</div>
+          <div>
+            <b>Outside the boundary</b>
+            <span>External LLM APIs · Public cloud AI · Third-party model training</span>
+          </div>
+        </div>
       </div>
       <style>{`
-        .pillars-stack { display: grid; gap: 0; }
-        .pillar-row {
-          display: grid;
-          grid-template-columns: 1fr 1.2fr 1.2fr;
-          gap: clamp(24px, 3vw, 56px);
-          padding: clamp(36px, 4vw, 56px) 0;
+        .arch-frame {
+          position: relative;
+          padding: 36px 16px 24px;
+        }
+        .arch-frame::before {
+          content: ""; position: absolute; inset: 14px;
+          border: 1.5px dashed rgba(199,242,63,0.35);
+          border-radius: var(--r-xl);
+          background: rgba(199,242,63,0.04);
+          pointer-events: none;
+        }
+        [data-theme="light"] .arch-frame::before { border-color: rgba(142,179,30,0.40); background: rgba(199,242,63,0.06); }
+        .arch-frame-lab {
+          position: absolute; top: 4px; left: 60px;
+          padding: 0 12px; z-index: 1;
+          background: var(--bg);
+          font-family: var(--font-body);
+          font-weight: 700; font-size: 12px;
+          letter-spacing: var(--track-eyebrow); text-transform: uppercase;
+          color: var(--arda-lime-500);
+        }
+        [data-theme="light"] .arch-frame-lab { color: var(--arda-lime-700); }
+        .arch-grid {
+          display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+          padding: 8px;
+          position: relative; z-index: 1;
+        }
+        @media (max-width: 1100px) { .arch-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 640px)  { .arch-grid { grid-template-columns: repeat(2, 1fr); } }
+        .arch-node {
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          border-radius: var(--r-md);
+          padding: 16px 14px;
+          display: flex; flex-direction: column; gap: 6px;
+          min-height: 110px;
+        }
+        .arch-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--text-3); }
+        .arch-node b {
+          font-family: var(--font-display);
+          font-weight: 700; font-size: 15px; letter-spacing: -0.01em;
+          color: var(--text);
+        }
+        .arch-sub { font-size: 12px; line-height: 1.35; color: var(--text-2); }
+        .arch-stamps {
+          display: flex; gap: 10px; flex-wrap: wrap;
+          padding: 14px 8px 0;
+          position: relative; z-index: 1;
+        }
+        .arch-outside {
+          margin-top: 28px;
+          display: flex; gap: 18px; align-items: flex-start;
+          padding-top: 24px;
           border-top: 1px solid var(--hairline);
         }
-        .pillar-row:last-child { border-bottom: 1px solid var(--hairline); }
-        @media (max-width: 1000px) { .pillar-row { grid-template-columns: 1fr; } }
-        .proof-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-        .proof-list li { font-size: 14.5px; line-height: 1.55; color: var(--text-2); padding-left: 16px; position: relative; }
-        .proof-list li::before {
-          content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 4px;
+        .arch-outside-mark {
+          width: 32px; height: 32px; border-radius: 50%;
+          background: rgba(255,51,102,0.18);
+          color: var(--arda-alert-500);
+          display: flex; align-items: center; justify-content: center;
+          font-family: var(--font-display);
+          font-weight: 800; font-size: 22px; line-height: 1;
+          flex: 0 0 auto;
         }
-        .proof-list li strong { color: var(--text); font-weight: 600; }
+        .arch-outside b { color: var(--arda-alert-500); font-weight: 700; display: block; margin-bottom: 4px; }
+        .arch-outside span { font-size: 14px; color: var(--text-2); }
       `}</style>
     </section>
   );
@@ -366,7 +411,7 @@ const PRODUCTS = [
     role: "Sovereign chat",
     blurb: "Sanctioned scratchpad for sensitive, ad-hoc queries. The only place a regulated user can paste internal data without leaving the boundary.",
     href: "core.html",
-    detail: ["In-boundary chat UI", "IdP-bound RBAC", "Audit-grade prompt log", "DLP and PII redaction", "Sanctioned scratchpad mode", "Zero retention by default"],
+    detail: ["In-boundary chat UI", "IdP-bound RBAC", "Audit-grade prompt log", "DLP and PII redaction", "Zero retention by default"],
   },
   {
     n: "02",
@@ -374,7 +419,7 @@ const PRODUCTS = [
     role: "Sovereign coding assistant",
     blurb: "IDE-integrated for engineers in regulated codebases. Source code never leaves your environment. The energy-networks beachhead.",
     href: "code.html",
-    detail: ["IDE plugins", "In-boundary code completion and review", "Repo-aware retrieval", "No code or prompts leave", "Audit trail per developer", "Cost flat as usage compounds"],
+    detail: ["IDE plugins", "In-boundary completion & review", "Repo-aware retrieval", "No code or prompts leave", "Audit trail per developer"],
   },
   {
     n: "03",
@@ -382,7 +427,7 @@ const PRODUCTS = [
     role: "Sovereign knowledge & search",
     blurb: "Access-aware RAG over internal docs and systems. Permission-bound retrieval, cited answers, nothing indexed outside the boundary.",
     href: "index-product.html",
-    detail: ["Access-aware RAG", "Permission-bound retrieval", "Cited answers with source documents", "Connectors for SharePoint / Confluence / Drive", "Re-index inside the boundary"],
+    detail: ["Access-aware RAG", "Permission-bound retrieval", "Cited answers with sources", "Connectors for SharePoint / Confluence / Drive", "Re-index inside the boundary"],
   },
 ];
 
@@ -391,7 +436,7 @@ function Products() {
     <section className="products">
       <div className="container">
         <div className="section-head">
-          <div className="section-label">Products · Layer 05</div>
+          <div className="section-label">Products · Layer 04</div>
           <h2 className="h-xl">One platform.<br />Three sovereign workloads.</h2>
           <p className="lead">
             All three products inherit identity, policy, custody and audit from the Arda sovereign platform. A fourth — Arda Graph — is on the near-term roadmap.
@@ -402,14 +447,14 @@ function Products() {
             <a key={p.n} href={p.href} className="card product-card">
               <div className="card-header">
                 <span className="card-num">{p.n}</span>
-                <span className="eyebrow">{p.name.toUpperCase()}</span>
+                <span className="eyebrow eyebrow-lime">{p.name}</span>
               </div>
               <h3 className="h-lg" style={{ marginBottom: 8 }}>{p.role}.</h3>
-              <p className="body" style={{ fontSize: 14.5, marginBottom: 22 }}>{p.blurb}</p>
+              <p className="body" style={{ fontSize: 14.5, marginBottom: 20 }}>{p.blurb}</p>
               <ul className="capabilities">
                 {p.detail.map((d, i) => <li key={i}>{d}</li>)}
               </ul>
-              <span className="link-arrow" style={{ marginTop: 24, display: "inline-flex" }}>
+              <span className="link-arrow" style={{ marginTop: 22, display: "inline-flex" }}>
                 Read the {p.name} brief <span className="arr">→</span>
               </span>
             </a>
@@ -424,14 +469,14 @@ function Products() {
         .product-card { display: block; }
         .capabilities { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
         .capabilities li { font-size: 13.5px; color: var(--text-2); padding-left: 14px; position: relative; }
-        .capabilities li::before { content: "·"; position: absolute; left: 4px; color: var(--accent); }
+        .capabilities li::before { content: "·"; position: absolute; left: 4px; color: var(--arda-lime-500); font-weight: 700; }
         .roadmap-note {
           margin-top: clamp(28px, 3vw, 48px);
           padding: 18px 22px;
           border: 1px dashed var(--border-strong);
-          border-radius: 3px;
+          border-radius: var(--r-md);
           display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
-          font-size: 14.5px; color: var(--text-2);
+          font-size: 14px; color: var(--text-2);
         }
       `}</style>
     </section>
@@ -440,7 +485,7 @@ function Products() {
 
 function Industries() {
   return (
-    <section className="industries bg-pattern">
+    <section className="industries">
       <div className="container">
         <div className="section-head">
           <div className="section-label">Industries · Where Arda lives</div>
@@ -454,7 +499,7 @@ function Industries() {
           <a href="industry-energy.html" className="industry-card">
             <div className="industry-card-head">
               <span className="card-num">01</span>
-              <span className="eyebrow">Primary segment</span>
+              <span className="eyebrow eyebrow-lime">Primary segment</span>
             </div>
             <h3 className="h-lg" style={{ marginTop: 14 }}>Energy networks (T&D)</h3>
             <p className="body" style={{ fontSize: 15, marginTop: 12 }}>
@@ -463,14 +508,14 @@ function Industries() {
             <div className="industry-meta">
               <span>AESCSF</span><span>·</span><span>SOCI Act</span><span>·</span><span>AEMO-aligned</span>
             </div>
-            <span className="link-arrow" style={{ marginTop: 24, display: "inline-flex" }}>
+            <span className="link-arrow" style={{ marginTop: 22, display: "inline-flex" }}>
               See the Energy brief <span className="arr">→</span>
             </span>
           </a>
           <a href="industry-fsi.html" className="industry-card">
             <div className="industry-card-head">
               <span className="card-num">02</span>
-              <span className="eyebrow">Secondary segment</span>
+              <span className="eyebrow eyebrow-lime">Secondary segment</span>
             </div>
             <h3 className="h-lg" style={{ marginTop: 14 }}>Banks, insurers, super</h3>
             <p className="body" style={{ fontSize: 15, marginTop: 12 }}>
@@ -479,98 +524,103 @@ function Industries() {
             <div className="industry-meta">
               <span>APRA CPS 234 / 230</span><span>·</span><span>SOC 2 Type II</span><span>·</span><span>ISO 27001</span>
             </div>
-            <span className="link-arrow" style={{ marginTop: 24, display: "inline-flex" }}>
+            <span className="link-arrow" style={{ marginTop: 22, display: "inline-flex" }}>
               See the FSI brief <span className="arr">→</span>
             </span>
           </a>
         </div>
 
         <div className="adjacency">
-          <div className="adjacency-row">
-            <span className="tag">Adjacency</span>
-            <div>
-              <strong style={{ color: "var(--text)" }}>Other critical infrastructure under the SOCI Act.</strong> Telecommunications, water, ports, defence-adjacent.
-              The same architecture; the same evidence pack; a different regulator on the cover sheet. <a href="contact.html" className="link-arrow">Talk to us about your sector <span className="arr">→</span></a>
-            </div>
+          <span className="tag">Adjacency</span>
+          <div>
+            <strong style={{ color: "var(--text)" }}>Other critical infrastructure under the SOCI Act.</strong> Telecommunications, water, ports, defence-adjacent.
+            The same architecture; the same evidence pack; a different regulator on the cover sheet. <a href="contact.html" className="link-arrow">Talk to us about your sector <span className="arr">→</span></a>
           </div>
         </div>
       </div>
       <style>{`
-        .industries-grid {
-          display: grid; grid-template-columns: 1fr 1fr;
-          gap: clamp(20px, 2vw, 32px);
-        }
+        .industries-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2vw, 28px); }
         @media (max-width: 900px) { .industries-grid { grid-template-columns: 1fr; } }
         .industry-card {
           display: block;
-          padding: clamp(28px, 2.6vw, 40px);
+          padding: clamp(28px, 2.6vw, 36px);
           background: var(--bg-card);
           border: 1px solid var(--border);
-          border-radius: 4px;
-          transition: border-color 200ms ease, transform 200ms ease;
+          border-radius: var(--r-lg);
+          transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
         }
-        .industry-card:hover { border-color: var(--accent); }
+        .industry-card:hover { border-color: var(--arda-lime-500); transform: translateY(-2px); }
         .industry-card-head { display: flex; gap: 18px; align-items: baseline; }
         .industry-meta {
-          margin-top: 22px;
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+          margin-top: 20px;
+          font-family: var(--font-mono);
+          font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
           color: var(--text-3);
           display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
         }
-        .adjacency { margin-top: clamp(28px, 3vw, 48px); }
-        .adjacency-row {
+        .adjacency {
+          margin-top: clamp(28px, 3vw, 40px);
           display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap;
-          padding: 18px 22px;
+          padding: 22px 0 0;
           border-top: 1px solid var(--hairline);
-          font-size: 15px; color: var(--text-2);
-          line-height: 1.55;
+          font-size: 14.5px; color: var(--text-2); line-height: 1.55;
         }
-        .adjacency-row .tag { flex-shrink: 0; }
+        .adjacency .tag { flex-shrink: 0; }
       `}</style>
     </section>
   );
 }
 
-function Proof() {
+const STATS = [
+  { num: "Zero",  suf: "",  lab: "Data egress",                 src: "Contractual & architectural." },
+  { num: "3 + 1", suf: "",  lab: "Regulator alignments",        src: "AESCSF · CPS 234 / 230 · SOCI + SOC 2." },
+  { num: "<90",   suf: "d", lab: "Signed to live",              src: "Customer-environment deployment target." },
+  { num: "100",   suf: "%", lab: "Open-weight models supported", src: "Llama, Mistral, Qwen on your GPUs." },
+];
+
+function StatsBand() {
   return (
-    <section className="proof">
+    <section className="stats">
       <div className="container">
-        <div className="section-head">
-          <div className="section-label">Proof points · Layer 06</div>
-          <h2 className="h-xl">Compliance-aligned.<br />Customer-backed. Audit-ready.</h2>
-          <p className="lead">
-            The receipts behind the three pillars. Numbers we can defend. Certifications we can footnote. Alignments we can show on demand.
+        <div className="section-head" style={{ textAlign: "center", margin: "0 auto clamp(40px,5vw,64px)", justifyItems: "center" }}>
+          <div className="section-label" style={{ justifySelf: "center" }}>Proof · the receipts</div>
+          <h2 className="h-xl">Compliance-aligned. Customer-backed.<br />Audit-ready.</h2>
+          <p className="lead" style={{ margin: "0 auto" }}>
+            Numbers we can defend. Certifications we can footnote. Alignments we can show on demand.
           </p>
         </div>
-        <div className="proof-grid">
-          <div className="proof-stat">
-            <div className="proof-num display"><span style={{ color: "var(--accent)" }}>Zero</span></div>
-            <div className="proof-stat-title">Data egress</div>
-            <div className="proof-stat-meta">Prompts, responses, training. None leave the boundary. Contractual and architectural.</div>
-          </div>
-          <div className="proof-stat">
-            <div className="proof-num display"><span style={{ color: "var(--accent)" }}>3 + 1</span></div>
-            <div className="proof-stat-title">Regulator alignments</div>
-            <div className="proof-stat-meta">AESCSF · APRA CPS 234 / 230 · SOCI Act &nbsp;+&nbsp; SOC 2 Type II.</div>
-          </div>
-          <div className="proof-stat">
-            <div className="proof-num display"><span style={{ color: "var(--accent)" }}>&lt;90<span style={{ fontSize: "0.6em" }}>d</span></span></div>
-            <div className="proof-stat-title">From signed to live</div>
-            <div className="proof-stat-meta">Customer-environment deployment, target. Inside an existing platform team's operating model.</div>
-          </div>
-        </div>
-        <div className="proof-foot tiny mono">
-          Sources · Phase 1 GTM Workshop · Tone of Voice v1 · Internal POV deck
+        <div className="stats-grid">
+          {STATS.map(s => (
+            <div className="stat" key={s.lab}>
+              <div className="stat-num">{s.num}{s.suf && <small>{s.suf}</small>}</div>
+              <div className="stat-lab">{s.lab}</div>
+              <div className="stat-src mono">{s.src}</div>
+            </div>
+          ))}
         </div>
       </div>
       <style>{`
-        .proof-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(24px, 3vw, 64px); align-items: end; }
-        @media (max-width: 900px) { .proof-grid { grid-template-columns: 1fr; } }
-        .proof-num { font-size: clamp(72px, 9vw, 128px); line-height: 0.9; letter-spacing: -0.04em; font-weight: 700; }
-        .proof-stat-title { margin-top: 16px; font-size: 17px; font-weight: 600; }
-        .proof-stat-meta { margin-top: 8px; font-size: 14px; color: var(--text-2); max-width: 36ch; }
-        .proof-foot { margin-top: clamp(40px, 5vw, 72px); padding-top: 18px; border-top: 1px solid var(--hairline); }
+        .stats-grid {
+          display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+          border-top: 1px solid var(--hairline);
+          border-bottom: 1px solid var(--hairline);
+        }
+        @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat { padding: 36px 24px; border-right: 1px solid var(--hairline); }
+        .stat:last-child { border-right: 0; }
+        @media (max-width: 900px) {
+          .stat:nth-child(2n) { border-right: 0; }
+          .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--hairline); }
+        }
+        .stat-num {
+          font-family: var(--font-display);
+          font-weight: 800; font-size: clamp(56px, 6.5vw, 84px);
+          line-height: 1; letter-spacing: -0.04em;
+          color: var(--arda-lime-500);
+        }
+        .stat-num small { font-size: 0.42em; opacity: 0.55; font-weight: 700; }
+        .stat-lab { margin-top: 14px; font-size: 13px; line-height: 1.3; font-weight: 700; color: var(--text); letter-spacing: 0.02em; }
+        .stat-src { margin-top: 8px; font-size: 11px; color: var(--text-3); }
       `}</style>
     </section>
   );
@@ -581,7 +631,7 @@ function Persona() {
     <section className="persona">
       <div className="container">
         <div className="section-head">
-          <div className="section-label">Audience · Same hierarchy, three angles</div>
+          <div className="section-label">Audience · same hierarchy, three angles</div>
           <h2 className="h-xl">What each persona<br />actually hears.</h2>
           <p className="lead">
             The CIO buys it. The Champion pulls for it. The Gatekeeper has to clear it. Same architecture, three sets of words.
@@ -589,17 +639,17 @@ function Persona() {
         </div>
         <div className="grid-3">
           <article className="card">
-            <div className="card-header"><span className="card-num">01</span><span className="eyebrow">CIO · Buyer</span></div>
+            <div className="card-header"><span className="card-num">01</span><span className="eyebrow eyebrow-lime">CIO · Buyer</span></div>
             <h3 className="h-lg">Defendable AI.</h3>
             <p className="body" style={{ fontSize: 14.5, marginTop: 12 }}>"AI you can defend to your regulator." Lead with risk and control. Reinforce with predictable cost. Reference: peer adopters in the same sector.</p>
           </article>
           <article className="card">
-            <div className="card-header"><span className="card-num">02</span><span className="eyebrow">Champion · Head of AI</span></div>
+            <div className="card-header"><span className="card-num">02</span><span className="eyebrow eyebrow-lime">Champion · Head of AI</span></div>
             <h3 className="h-lg">AI without trade-off.</h3>
             <p className="body" style={{ fontSize: 14.5, marginTop: 12 }}>"The productivity story your CISO will sign." Lead with what becomes possible. Reinforce with time-to-value. Reference: sanctioned use cases that ship.</p>
           </article>
           <article className="card">
-            <div className="card-header"><span className="card-num">03</span><span className="eyebrow">Gatekeeper · CISO</span></div>
+            <div className="card-header"><span className="card-num">03</span><span className="eyebrow eyebrow-lime">Gatekeeper · CISO</span></div>
             <h3 className="h-lg">Inside the boundary.</h3>
             <p className="body" style={{ fontSize: 14.5, marginTop: 12 }}>"Audit-grade AI inside your trust boundary." Lead with custody, lineage, evidence. Reinforce with named regulator alignments. Reference: control-set, not capability list.</p>
           </article>
@@ -614,36 +664,39 @@ function CTA() {
     <section className="cta">
       <div className="container">
         <div className="cta-card bg-pattern">
-          <div className="section-label" style={{ color: "var(--accent)" }}>Closing</div>
-          <h2 className="display" style={{ marginTop: 18, fontSize: "clamp(40px, 5.5vw, 84px)" }}>
-            Adopt AI without changing<br />your security posture.
+          <div className="section-label">Closing</div>
+          <h2 className="display" style={{ marginTop: 18, fontSize: "clamp(40px, 5.5vw, 80px)" }}>
+            Adopt AI without changing<br />your <span className="accent">security posture.</span>
           </h2>
           <p className="lead" style={{ marginTop: 24, maxWidth: "60ch" }}>
             Twenty-five minutes. We walk your team through the architecture, the deployment options, and how a peer in your sector is using Arda inside their boundary.
           </p>
           <div className="cta-actions">
-            <a href="contact.html" className="btn btn-primary">Book an architecture review<span aria-hidden>→</span></a>
-            <a href="platform.html" className="btn btn-ghost">Read the platform brief</a>
+            <a href="contact.html" className="btn btn-primary btn-lg">Book an architecture review<span aria-hidden>→</span></a>
+            <a href="platform.html" className="btn btn-ghost btn-lg">Read the platform brief</a>
           </div>
-          <div className="cta-foot tiny mono">
+          <div className="cta-foot mono">
             Inside the boundary. Audit-grade. Sovereign by design.
           </div>
         </div>
       </div>
       <style>{`
         .cta-card {
-          padding: clamp(56px, 7vw, 112px) clamp(28px, 4vw, 80px);
+          padding: clamp(56px, 7vw, 104px) clamp(28px, 4vw, 72px);
           border: 1px solid var(--border-strong);
-          border-radius: 4px;
+          border-radius: var(--r-lg);
           background: var(--bg-2);
-          color: var(--text-2);
-          text-align: left;
         }
         .cta-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
-        .cta-foot { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--hairline); color: var(--accent); }
+        .cta-foot {
+          margin-top: 56px; padding-top: 20px;
+          border-top: 1px solid var(--hairline);
+          color: var(--arda-lime-500);
+          font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+        }
       `}</style>
     </section>
   );
 }
 
-Object.assign(window, { Hero, Vision, Pillars, Products, Industries, Proof, Persona, CTA, HEROES });
+Object.assign(window, { Hero, Vision, OwnOperateGovern, BoundaryDiagram, Products, Industries, StatsBand, Persona, CTA });

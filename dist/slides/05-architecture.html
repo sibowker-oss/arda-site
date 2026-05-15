@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Architecture · worm</title><link rel="stylesheet" href="styles.css">
+<style>
+  .slide { padding: 96px 96px 80px; }
+  .head { margin: 56px 0 40px; max-width: 1500px; }
+  .stage { flex: 1; position: relative; display: flex; align-items: center; }
+  .stage svg { width: 100%; height: auto; max-height: 600px; }
+  .below { display: flex; gap: 16px; margin-top: 36px; }
+</style></head>
+<body data-theme="dark">
+<div class="slide">
+  <div class="slide-header">
+    <div class="s-brand"><img src="assets/arda-logo-white.png" alt="Arda" /></div>
+    <span>ARCHITECTURE · 05 OF 08</span>
+  </div>
+  <div class="head">
+    <div class="eyebrow">Architecture</div>
+    <h1 class="s-title">Inside the boundary, or outside it.</h1>
+    <p class="s-lead">The same prompt routed two ways. The lime path stays inside — user, agent, system of record. The magenta path leaks to public cloud, and the regulator can see the difference.</p>
+  </div>
+  <div class="stage">
+    <svg viewBox="0 0 1500 480" xmlns="http://www.w3.org/2000/svg">
+      <rect x="240" y="60" width="900" height="280" rx="18" fill="rgba(199,242,63,0.04)" stroke="rgba(141,160,194,0.55)" stroke-width="2.5" stroke-dasharray="8 8"/>
+      <text x="264" y="92" fill="#8DA0C2" style="font:700 18px Inter Tight; letter-spacing:0.18em; text-transform:uppercase;">Your trust boundary</text>
+
+      <g>
+        <rect x="60" y="190" width="170" height="120" rx="10" fill="#1F2D4D" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <text x="145" y="240" text-anchor="middle" fill="#fff" style="font:700 26px Inter Tight; letter-spacing:-0.015em;">User</text>
+        <text x="145" y="270" text-anchor="middle" fill="#8DA0C2" style="font:14px JetBrains Mono;">operator</text>
+      </g>
+      <g>
+        <rect x="450" y="160" width="220" height="120" rx="10" fill="#1F2D4D" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <text x="560" y="210" text-anchor="middle" fill="#fff" style="font:700 28px Inter Tight; letter-spacing:-0.015em;">Arda agent</text>
+        <text x="560" y="240" text-anchor="middle" fill="#8DA0C2" style="font:14px JetBrains Mono;">in your VPC</text>
+      </g>
+      <g>
+        <rect x="850" y="160" width="200" height="120" rx="10" fill="#1F2D4D" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <text x="950" y="210" text-anchor="middle" fill="#fff" style="font:700 28px Inter Tight; letter-spacing:-0.015em;">SCADA</text>
+        <text x="950" y="240" text-anchor="middle" fill="#8DA0C2" style="font:14px JetBrains Mono;">OT system of record</text>
+      </g>
+      <g>
+        <rect x="1230" y="190" width="220" height="140" rx="10" fill="#1F2D4D" stroke="#FF3366" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <text x="1340" y="240" text-anchor="middle" fill="#fff" style="font:700 26px Inter Tight; letter-spacing:-0.015em;">Public cloud</text>
+        <text x="1340" y="268" text-anchor="middle" fill="#8DA0C2" style="font:14px JetBrains Mono;">third-party LLM</text>
+        <text x="1340" y="290" text-anchor="middle" fill="#FF3366" style="font:14px JetBrains Mono;">PII visible · no audit</text>
+      </g>
+
+      <path d="M 230 250 L 450 220" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
+      <path d="M 670 220 L 850 220" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
+      <path d="M 230 250 C 400 380, 1100 420, 1230 260" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
+
+      <path d="M 230 250 C 320 230, 400 222, 450 220 L 670 220 C 760 220, 800 220, 850 220"
+            fill="none" stroke="#C7F23F" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 230 250 C 400 380, 1100 420, 1230 260"
+            fill="none" stroke="#FF3366" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 10"/>
+
+      <text x="540" y="142" fill="#C7F23F" style="font:700 16px Inter Tight; letter-spacing:0.16em; text-transform:uppercase;">Inside the boundary</text>
+      <text x="700" y="430" fill="#FF3366" style="font:700 16px Inter Tight; letter-spacing:0.16em; text-transform:uppercase;">Outside the boundary</text>
+    </svg>
+  </div>
+  <div class="below">
+    <span class="pill pill-good"><span class="dot"></span>No data egress</span>
+    <span class="pill pill-good"><span class="dot"></span>No external API calls</span>
+    <span class="pill pill-good"><span class="dot"></span>Audit trail kept</span>
+  </div>
+  <div class="slide-footer">
+    <span>CONFIDENTIAL · ARDA × ACME</span>
+    <span>05 / 08</span>
+  </div>
+</div>
+</body></html>

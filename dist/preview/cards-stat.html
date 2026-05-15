@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .tile {
+    background: var(--bg-raised-dark);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 22px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    min-height: 180px;
+  }
+  .tile.claim { background: var(--bg-card-dark); }
+  .ic { width: 28px; height: 28px; }
+  .num { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: #fff; }
+  .num small { font-size: 24px; color: var(--arda-slate-300); }
+  .lab { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--arda-slate-300); margin-top: auto; }
+  .head { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; color: #fff; }
+  .sub { font-size: 14px; line-height: 1.45; color: var(--arda-slate-300); }
+</style></head>
+<body>
+  <div class="card">
+    <div class="grid">
+      <div class="tile">
+        <img class="ic" src="../assets/icons/lock.png" alt="">
+        <div class="num">0</div>
+        <div class="head">Data egress</div>
+        <div class="lab">Inside your boundary</div>
+      </div>
+      <div class="tile claim">
+        <img class="ic" src="../assets/icons/audit.png" alt="">
+        <div class="head">Audit-grade trail</div>
+        <div class="sub">Every prompt, response and model call logged for your CISO and your regulator.</div>
+        <div class="lab">Compliance ready</div>
+      </div>
+      <div class="tile">
+        <img class="ic" src="../assets/icons/chip.png" alt="">
+        <div class="num">5–30<small>×</small></div>
+        <div class="head">More tokens per agentic task</div>
+        <div class="lab">Source · Capgemini</div>
+      </div>
+    </div>
+  </div>
+</body></html>

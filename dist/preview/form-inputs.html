@@ -1,0 +1,64 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: #fff; }
+  .card { padding: 28px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; }
+  label { display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--fg-on-light-muted); margin-bottom: 6px; }
+  .input, .select, .textarea {
+    width: 100%; box-sizing: border-box;
+    font-family: var(--font-body); font-size: 14px; color: var(--fg-on-light);
+    background: #fff; border: 1px solid var(--rule-on-light-strong);
+    border-radius: 4px; padding: 10px 12px;
+    transition: border-color 140ms, box-shadow 140ms;
+  }
+  .input:focus, .select:focus, .textarea:focus {
+    outline: 0; border-color: var(--arda-lime-500);
+    box-shadow: 0 0 0 3px rgba(39,93,246,0.20);
+  }
+  .input::placeholder { color: var(--arda-slate-400); }
+  .input.error { border-color: var(--arda-risk); }
+  .help { font-size: 12px; color: var(--fg-on-light-faint); margin-top: 6px; }
+  .help.err { color: var(--arda-risk); }
+  .check { display: flex; align-items: flex-start; gap: 10px; }
+  .check input { width: 16px; height: 16px; accent-color: var(--arda-lime-500); margin-top: 2px; }
+  .check span { font-size: 13px; line-height: 1.4; color: var(--fg-on-light); }
+  .check small { display: block; color: var(--fg-on-light-muted); font-size: 12px; margin-top: 2px; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label>Work email</label>
+        <input class="input" type="email" value="risk.lead@acme-energy.com">
+        <div class="help">We use this to send the deep-dive briefing.</div>
+      </div>
+      <div>
+        <label>Regulator</label>
+        <select class="select">
+          <option>AESCSF · Australian Energy</option>
+          <option>APRA CPS 234 · Banking</option>
+          <option>FCA · UK Financial</option>
+          <option>NIST 800-53 · US Federal</option>
+        </select>
+      </div>
+      <div>
+        <label>Boundary status</label>
+        <input class="input error" value="api.openai.com">
+        <div class="help err">This endpoint sits outside your trust boundary.</div>
+      </div>
+      <div>
+        <label>Annual GPU budget (AUD)</label>
+        <input class="input" placeholder="e.g. 1,200,000">
+      </div>
+      <div style="grid-column: 1 / -1">
+        <div class="check">
+          <input id="ack" type="checkbox" checked>
+          <label for="ack" style="margin:0;text-transform:none;letter-spacing:0;color:var(--fg-on-light);font-size:13px;font-weight:600">
+            <span>I have authority to share architecture diagrams.<small>Required before the technical session.</small></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</body></html>

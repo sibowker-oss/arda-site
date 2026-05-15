@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Three column claim</title><link rel="stylesheet" href="styles.css">
+<style>
+  .slide { padding: 96px 96px 80px; }
+  .head { margin: 64px 0 56px; max-width: 1500px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; flex: 1; }
+  .tile-num { font-family: var(--font-mono); font-size: 18px; color: var(--arda-lime-500); letter-spacing: 0.20em; }
+  .tile-glyph { font-family: var(--font-display); font-weight: 800; font-size: 168px; line-height: 0.85; letter-spacing: -0.05em; color: var(--arda-lime-500); margin: 0; }
+  .tile-eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 18px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--arda-lime-400); margin-top: 12px; }
+  .tile-title { font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin: 0; }
+  .tile-body { font-size: 21px; line-height: 1.45; color: var(--arda-slate-200); }
+  .tile-rule { height: 1px; background: var(--rule-on-dark); margin: 8px 0 12px; }
+  .s-tile { padding: 40px 36px; }
+</style></head>
+<body data-theme="dark">
+<div class="slide">
+  <div class="slide-header">
+    <div class="s-brand"><img src="assets/arda-logo-white.png" alt="Arda" /></div>
+    <span>THE PLATFORM · 03 OF 08</span>
+  </div>
+  <div class="head">
+    <div class="eyebrow">The platform</div>
+    <h1 class="s-title">Own. Operate. Govern.</h1>
+    <p class="s-lead">Three sub-claims, three proof points. The structural device for everything that follows.</p>
+  </div>
+  <div class="grid">
+    <article class="s-tile">
+      <div class="tile-rule"></div>
+      <span class="tile-num">01</span>
+      <div class="tile-glyph">O</div>
+      <span class="tile-eyebrow">Own</span>
+      <h3 class="tile-title">Open weights, on your hardware</h3>
+      <p class="tile-body">Llama, Mistral, Qwen on your GPU pool, in your environment. The platform is yours. The custody is yours.</p>
+    </article>
+    <article class="s-tile">
+      <div class="tile-rule"></div>
+      <span class="tile-num">02</span>
+      <div class="tile-glyph">P</div>
+      <span class="tile-eyebrow">Operate</span>
+      <h3 class="tile-title">Inside your existing trust boundary</h3>
+      <p class="tile-body">Integrates with your IdP, RBAC, SIEM. No new perimeter, no new vendor risk review.</p>
+    </article>
+    <article class="s-tile">
+      <div class="tile-rule"></div>
+      <span class="tile-num">03</span>
+      <div class="tile-glyph">G</div>
+      <span class="tile-eyebrow">Govern</span>
+      <h3 class="tile-title">Audit-grade trail by default</h3>
+      <p class="tile-body">Every prompt, response, model call logged. Designed for the regulator review, not the demo.</p>
+    </article>
+  </div>
+  <div class="slide-footer">
+    <span>CONFIDENTIAL · ARDA × ACME</span>
+    <span>03 / 08</span>
+  </div>
+</div>
+</body></html>

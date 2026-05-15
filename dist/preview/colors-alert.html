@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .card { padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .swatch { border-radius: 6px; aspect-ratio: 1.05/1; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,0.08); position: relative; }
+  .swatch .name { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+  .swatch .hex { font-family: var(--font-mono); font-size: 11px; opacity: 0.85; }
+  .swatch.star::after { content: "★"; position: absolute; top: 8px; right: 10px; font-size: 14px; }
+  .lead { font-size: 13px; line-height: 1.5; color: var(--arda-slate-300); margin-bottom: 18px; max-width: 56ch; }
+  .lead b { color: #fff; font-weight: 600; }
+
+  .demo { margin-top: 18px; padding: 24px; background: var(--arda-navy-1000); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; gap: 22px; align-items: center; }
+  .alert-mark { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,51,102,0.18); color: #FF3366; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 22px; flex: 0 0 auto; }
+  .alert-txt b { color: #FF3366; font-weight: 700; display: block; margin-bottom: 4px; }
+  .alert-txt span { font-size: 13px; color: var(--arda-slate-300); }
+</style></head>
+<body>
+  <div class="card">
+    <div class="eyebrow" style="margin-bottom:10px">Alert · the risk signal</div>
+    <p class="lead">Hot magenta. Carries every "outside the boundary" signal — blocked egress, audit failure, third-party LLM call, banned vocabulary. Replaces v2 worm-red so the pair stays native to the Static palette and stays distinct from the brand-reds buyers already see on their regulator dashboards.</p>
+
+    <div class="grid">
+      <div class="swatch" style="background:#C71A4D;color:#fff"><span class="name">Alert 700</span><span class="hex">#C71A4D</span></div>
+      <div class="swatch" style="background:#E62A5F;color:#fff"><span class="name">Alert 600</span><span class="hex">#E62A5F</span></div>
+      <div class="swatch star" style="background:#FF3366;color:#fff"><span class="name">Alert 500</span><span class="hex">#FF3366</span></div>
+      <div class="swatch" style="background:#FF6688;color:#0A1224"><span class="name">Alert 400</span><span class="hex">#FF6688</span></div>
+      <div class="swatch" style="background:#FF99AA;color:#0A1224"><span class="name">Alert 300</span><span class="hex">#FF99AA</span></div>
+      <div class="swatch" style="background:#FFE0E8;color:#0A1224"><span class="name">Alert 100</span><span class="hex">#FFE0E8</span></div>
+    </div>
+
+    <div class="demo">
+      <div class="alert-mark">×</div>
+      <div class="alert-txt">
+        <b>Outside the boundary</b>
+        <span>External LLM APIs · public cloud AI · third-party model training</span>
+      </div>
+    </div>
+  </div>
+</body></html>

@@ -8,7 +8,7 @@ function PlatformHero() {
     <section className="page-hero bg-pattern">
       <div className="container">
         <Breadcrumb items={[{ label: "Arda", href: "index.html" }, { label: "Platform" }]} />
-        <div className="eyebrow" style={{ marginTop: 28 }}>Platform · Sovereign by architecture</div>
+        <div className="eyebrow eyebrow-lime" style={{ marginTop: 28 }}>Platform · Sovereign by architecture</div>
         <h1 className="display" style={{ marginTop: 18, maxWidth: "20ch" }}>
           The four <span className="accent">controls</span> every Arda workload inherits.
         </h1>
@@ -69,10 +69,10 @@ const PILLARS = [
   },
 ];
 
-// Per-pillar marks. 1.5px stroke, no fill; primary in arda-blue-500, secondary
+// Per-pillar marks. 1.5px stroke, no fill; primary in arda-lime-500, secondary
 // detail in arda-slate-300. Drawn from Lucide-style geometry to match the deck.
 function PillarMark({ code }) {
-  const A = "var(--arda-blue-500)";
+  const A = "var(--arda-lime-500)";
   const B = "var(--arda-slate-300)";
   const common = { strokeWidth: 1.5, fill: "none", strokeLinecap: "round", strokeLinejoin: "round" };
   switch (code) {
@@ -205,8 +205,8 @@ function BoundaryGraphic() {
 
       {/* customer trust boundary */}
       <rect x="20" y="44" width="800" height="160" rx="6"
-        style={{ fill: "color-mix(in oklab, var(--arda-blue-500) 4%, transparent)", stroke: "var(--arda-blue-500)", strokeWidth: 1 }} />
-      <text x="36" y="68" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-blue-500)", letterSpacing: "0.16em" }}>
+        style={{ fill: "color-mix(in oklab, var(--arda-lime-500) 4%, transparent)", stroke: "var(--arda-lime-500)", strokeWidth: 1 }} />
+      <text x="36" y="68" style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-lime-500)", letterSpacing: "0.16em" }}>
         CUSTOMER TRUST BOUNDARY
       </text>
 
@@ -283,10 +283,10 @@ function Pillars() {
 // the top-right. `strong` flags the Arda Control Plane as the emphasised
 // element (1.5px blue stroke, soft blue tint) per the spec.
 function ArchBox({ x, y, w, h, eyebrow, title, sub, strong, icon }) {
-  const fill = strong ? "color-mix(in oklab, var(--arda-blue-500) 8%, transparent)" : "var(--arda-navy-700)";
-  const stroke = strong ? "var(--arda-blue-500)" : "var(--rule-on-dark-strong)";
+  const fill = strong ? "color-mix(in oklab, var(--arda-lime-500) 8%, transparent)" : "var(--arda-navy-700)";
+  const stroke = strong ? "var(--arda-lime-500)" : "var(--rule-on-dark-strong)";
   const strokeWidth = strong ? 1.5 : 1;
-  const eyebrowFill = strong ? "var(--arda-blue-500)" : "var(--arda-slate-300)";
+  const eyebrowFill = strong ? "var(--arda-lime-500)" : "var(--arda-slate-300)";
   return (
     <g>
       <rect x={x} y={y} width={w} height={h} rx="4"
@@ -307,7 +307,7 @@ function ArchBox({ x, y, w, h, eyebrow, title, sub, strong, icon }) {
       )}
       {icon && (
         <g transform={`translate(${x + w - 36}, ${y + 16})`}
-          stroke={strong ? "var(--arda-blue-500)" : "var(--arda-slate-300)"}
+          stroke={strong ? "var(--arda-lime-500)" : "var(--arda-slate-300)"}
           strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
           {icon}
         </g>
@@ -375,9 +375,9 @@ function ArchitectureDiagram() {
 
       {/* Customer trust boundary */}
       <rect x="20" y="40" width="1240" height="430" rx="6"
-        style={{ fill: "color-mix(in oklab, var(--arda-blue-500) 4%, transparent)", stroke: "var(--arda-blue-500)", strokeWidth: 1 }} />
+        style={{ fill: "color-mix(in oklab, var(--arda-lime-500) 4%, transparent)", stroke: "var(--arda-lime-500)", strokeWidth: 1 }} />
       <text x="40" y="68"
-        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-blue-500)", letterSpacing: "0.16em" }}>
+        style={{ fontFamily: "var(--font-mono)", fontSize: 11, fill: "var(--arda-lime-500)", letterSpacing: "0.16em" }}>
         CUSTOMER TRUST BOUNDARY
       </text>
       <text x="1240" y="68" textAnchor="end"

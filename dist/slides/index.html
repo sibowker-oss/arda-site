@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arda · Slide templates v2</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-canvas-light); padding: 56px 64px 96px; font-family: var(--font-body); color: var(--fg-on-light); margin: 0; }
+  header { max-width: 980px; margin-bottom: 48px; }
+  .eyebrow { display: block; margin-bottom: 12px; font-weight: 700; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--arda-lime-600); }
+  h1 { font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 1.05; letter-spacing: -0.028em; margin: 0 0 20px; }
+  p.lead { font-size: 19px; line-height: 1.5; color: var(--fg-on-light-muted); max-width: 720px; }
+  ul.deck { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 28px; }
+  ul.deck li { background: #fff; border: 1px solid var(--rule-on-light); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow .22s var(--ease-out), transform .22s var(--ease-out); }
+  ul.deck li:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+  ul.deck a { display: block; text-decoration: none; border: 0; color: inherit; }
+  .frame { aspect-ratio: 16 / 9; overflow: hidden; background: var(--arda-navy-900); position: relative; }
+  .frame iframe { width: 1920px; height: 1080px; border: 0; transform: scale(0.229); transform-origin: top left; pointer-events: none; }
+  .meta { padding: 18px 22px 22px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-top: 1px solid var(--rule-on-light); }
+  .meta b { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.015em; }
+  .meta span { font-family: var(--font-mono); font-size: 12px; color: var(--fg-on-light-faint); letter-spacing: 0.06em; }
+  .sub { color: var(--fg-on-light-muted); font-size: 15px; line-height: 1.4; padding: 0 22px 18px; }
+</style>
+</head>
+<body>
+  <header>
+    <span class="eyebrow">Slide templates · v2</span>
+    <h1>Sales-deck system, on tone of voice v1.</h1>
+    <p class="lead">Eight on-voice templates at 1920×1080. Inter Tight + JetBrains Mono. Stock iconography removed; the worm boundary metaphor and typography do the visual work.</p>
+  </header>
+
+  <ul class="deck">
+    <li><a href="01-cover.html"><div class="frame"><iframe src="01-cover.html" loading="lazy"></iframe></div><div class="meta"><b>Cover</b><span>01</span></div><div class="sub">Display headline · accent line · sober credit row.</div></a></li>
+    <li><a href="02-section.html"><div class="frame"><iframe src="02-section.html" loading="lazy"></iframe></div><div class="meta"><b>Section divider</b><span>02</span></div><div class="sub">Oversized numeral, blue rule, part heading.</div></a></li>
+    <li><a href="03-three-column.html"><div class="frame"><iframe src="03-three-column.html" loading="lazy"></iframe></div><div class="meta"><b>Own / Operate / Govern</b><span>03</span></div><div class="sub">Glyph-led tile system. No stock icons.</div></a></li>
+    <li><a href="04-stats.html"><div class="frame"><iframe src="04-stats.html" loading="lazy"></iframe></div><div class="meta"><b>Stats band</b><span>04</span></div><div class="sub">Four big numerals, footnoted sources.</div></a></li>
+    <li><a href="05-architecture.html"><div class="frame"><iframe src="05-architecture.html" loading="lazy"></iframe></div><div class="meta"><b>Boundary diagram</b><span>05</span></div><div class="sub">Worm metaphor — green inside, red outside.</div></a></li>
+    <li><a href="06-comparison.html"><div class="frame"><iframe src="06-comparison.html" loading="lazy"></iframe></div><div class="meta"><b>Comparison · light</b><span>06</span></div><div class="sub">Light-mode 3-column table — challenge / opportunity / answer.</div></a></li>
+    <li><a href="07-big-quote.html"><div class="frame"><iframe src="07-big-quote.html" loading="lazy"></iframe></div><div class="meta"><b>Big quote</b><span>07</span></div><div class="sub">Display face, attribution row.</div></a></li>
+    <li><a href="08-next-steps.html"><div class="frame"><iframe src="08-next-steps.html" loading="lazy"></iframe></div><div class="meta"><b>Next steps</b><span>08</span></div><div class="sub">Numbered list with deep-dive panel.</div></a></li>
+  </ul>
+</body>
+</html>

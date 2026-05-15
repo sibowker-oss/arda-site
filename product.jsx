@@ -131,7 +131,7 @@ function ProductPage({ id }) {
           <Breadcrumb items={[{ label: "Arda", href: "index.html" }, { label: "Products" }, { label: p.code.replace("ARDA ", "Arda ") }]} />
           <div className="prod-head" style={{ marginTop: 28 }}>
             <div>
-              <div className="eyebrow">{p.code} <span style={{ opacity: 0.4, margin: "0 10px" }}>·</span> Layer {p.n}</div>
+              <div className="eyebrow eyebrow-lime">{p.code} <span style={{ opacity: 0.4, margin: "0 10px" }}>·</span> Layer {p.n}</div>
               <h1 className="display" style={{ marginTop: 18, maxWidth: "20ch" }}>{p.title}</h1>
               <p className="lead" style={{ marginTop: 24, maxWidth: "58ch" }}>{p.sub}</p>
             </div>

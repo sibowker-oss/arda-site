@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: #fff; }
+  .card { padding: 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .panel { padding: 20px; border-radius: 10px; }
+  .panel.dark { background: var(--bg-canvas-dark); }
+  .panel.light { background: var(--bg-surface-light); border: 1px solid var(--rule-on-light); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .row:last-child { margin-bottom: 0; }
+  .lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--fg-on-light-muted); margin-bottom: 8px; }
+  .panel.dark .lbl { color: var(--fg-on-dark-muted); }
+
+  .btn {
+    font-family: var(--font-body); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.02em;
+    padding: 10px 16px; border-radius: 6px; border: 1px solid transparent;
+    display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer; transition: all 140ms cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .btn-primary { background: var(--arda-lime-500); color: #fff; }
+  .btn-primary:hover { background: var(--arda-lime-400); transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--fg-on-light); border-color: var(--rule-on-light-strong); }
+  .btn-secondary:hover { background: var(--bg-surface-light); border-color: var(--arda-slate-300); }
+  .panel.dark .btn-secondary { color: var(--fg-on-dark); border-color: var(--rule-on-dark-strong); }
+  .panel.dark .btn-secondary:hover { background: var(--bg-surface-dark); border-color: var(--arda-slate-400); }
+  .btn-ghost { background: transparent; color: var(--arda-lime-500); border: 0; padding: 10px 8px; }
+  .panel.dark .btn-ghost { color: var(--arda-slate-300); }
+  .btn-sm { padding: 6px 12px; font-size: 13px; }
+  .btn-lg { padding: 14px 22px; font-size: 16px; }
+  .arr { width: 8px; height: 8px; border-right: 2px solid currentColor; border-top: 2px solid currentColor; transform: rotate(45deg); display: inline-block; margin-left: 2px; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="grid">
+      <div class="panel dark">
+        <div class="lbl">On dark · navy 900</div>
+        <div class="row"><button class="btn btn-primary">Book a deep-dive<span class="arr"></span></button><button class="btn btn-secondary">Read POV</button><button class="btn btn-ghost">See architecture →</button></div>
+        <div class="row"><button class="btn btn-primary btn-lg">Request architecture review</button></div>
+        <div class="row"><button class="btn btn-primary btn-sm">Save</button><button class="btn btn-secondary btn-sm">Cancel</button></div>
+      </div>
+      <div class="panel light">
+        <div class="lbl">On light</div>
+        <div class="row"><button class="btn btn-primary">Book a deep-dive<span class="arr"></span></button><button class="btn btn-secondary">Read POV</button><button class="btn btn-ghost">See architecture →</button></div>
+        <div class="row"><button class="btn btn-primary btn-lg">Request architecture review</button></div>
+        <div class="row"><button class="btn btn-primary btn-sm">Save</button><button class="btn btn-secondary btn-sm">Cancel</button></div>
+      </div>
+    </div>
+  </div>
+</body></html>

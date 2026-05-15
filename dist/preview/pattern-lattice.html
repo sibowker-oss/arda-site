@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .card { padding: 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .cell { height: 220px; position: relative; overflow: hidden; border-right: 1px solid var(--rule-on-dark); }
+  .cell:last-child { border: 0; }
+  .pat {
+    position: absolute; inset: 0;
+    background-image: url("../assets/pattern-lattice.png");
+    background-repeat: repeat;
+    background-size: 80px auto;
+  }
+  .cell .pat.q1 { opacity: 0.20; }
+  .cell .pat.q2 { opacity: 0.45; }
+  .cell .pat.q3 { opacity: 0.85; }
+  .cap {
+    position: absolute; left: 14px; bottom: 12px; right: 14px;
+    font-family: var(--font-body); font-weight: 700;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--fg-on-dark-muted);
+    display: flex; justify-content: space-between;
+  }
+  .cap b { color: var(--fg-on-dark); font-weight: 700; }
+  .grad {
+    position: absolute; inset: auto 0 0 0; height: 60%;
+    background: linear-gradient(to bottom, transparent, var(--bg-canvas-dark));
+  }
+</style></head>
+<body>
+  <div class="card">
+    <div class="grid">
+      <div class="cell">
+        <div class="pat q1"></div>
+        <div class="grad"></div>
+        <div class="cap"><b>Whisper</b><span>0.20</span></div>
+      </div>
+      <div class="cell">
+        <div class="pat q2"></div>
+        <div class="grad"></div>
+        <div class="cap"><b>Default</b><span>0.45</span></div>
+      </div>
+      <div class="cell">
+        <div class="pat q3"></div>
+        <div class="grad"></div>
+        <div class="cap"><b>Hero band</b><span>0.85</span></div>
+      </div>
+    </div>
+  </div>
+</body></html>

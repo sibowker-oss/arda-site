@@ -1,0 +1,67 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  body { background: var(--bg-canvas-dark); color: var(--fg-on-dark); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .row:last-child { margin-bottom: 0; }
+  .lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--fg-on-dark-muted); margin: 0 0 8px; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    font-family: var(--font-body); font-weight: 700; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid transparent;
+  }
+  .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  .pill-info { background: rgba(39,93,246,0.15); color: #ADC2FF; border-color: rgba(39,93,246,0.35); }
+  .pill-ok   { background: rgba(47,179,122,0.13); color: #6EE0A4; border-color: rgba(47,179,122,0.30); }
+  .pill-warn { background: rgba(226,162,59,0.13); color: #F2C277; border-color: rgba(226,162,59,0.30); }
+  .pill-risk { background: rgba(255,51,102,0.13); color: #FF8A8A; border-color: rgba(255,51,102,0.30); }
+  .pill-mute { background: rgba(255,255,255,0.06); color: var(--arda-slate-200); border-color: rgba(255,255,255,0.12); }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 8px; border-radius: 4px;
+    font-family: var(--font-mono); font-size: 11px;
+    background: rgba(255,255,255,0.06); color: var(--arda-slate-200);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  .tag b { color: #fff; font-weight: 700; }
+
+  .conf {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body); font-weight: 700; font-size: 11px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--arda-slate-300);
+    padding: 4px 0;
+  }
+  .conf::before {
+    content: ""; width: 8px; height: 8px; background: var(--arda-alert-500); border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,51,102,0.2);
+  }
+</style></head>
+<body>
+  <div class="card">
+    <div class="lbl">Status pills</div>
+    <div class="row">
+      <span class="pill pill-info"><span class="dot"></span>In your boundary</span>
+      <span class="pill pill-ok"><span class="dot"></span>Audit ready</span>
+      <span class="pill pill-warn"><span class="dot"></span>Contractual only</span>
+      <span class="pill pill-risk"><span class="dot"></span>Egress detected</span>
+      <span class="pill pill-mute"><span class="dot"></span>Sandbox</span>
+    </div>
+    <div class="lbl">Mono tags &amp; chips</div>
+    <div class="row">
+      <span class="tag"><b>tenant</b>=acme-prod</span>
+      <span class="tag"><b>egress</b>=0</span>
+      <span class="tag"><b>region</b>=eu-private</span>
+      <span class="tag"><b>model</b>=llama-3.3-70b</span>
+    </div>
+    <div class="lbl">Document marker</div>
+    <div class="row">
+      <span class="conf">CONFIDENTIAL · Arda × Acme · May 2026</span>
+    </div>
+  </div>
+</body></html>
